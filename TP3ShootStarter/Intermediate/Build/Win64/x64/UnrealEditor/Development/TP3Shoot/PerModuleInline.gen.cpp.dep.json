@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\perso\\unrealp\\shooterai\\tp3shootstarter\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\tp3shoot\\permoduleinline.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\perso\\unrealp\\shooterai\\tp3shootstarter\\intermediate\\build\\win64\\x64\\tp3shooteditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\perso\\unrealp\\shooterai\\tp3shootstarter\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\tp3shoot\\definitions.tp3shoot.h",
+            "c:\\perso\\cours\\ue_5.6\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

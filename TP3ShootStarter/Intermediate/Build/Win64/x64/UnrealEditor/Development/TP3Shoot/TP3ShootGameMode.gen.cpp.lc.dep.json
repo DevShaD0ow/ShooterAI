@@ -1,0 +1,19 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\perso\\unrealp\\shooterai\\tp3shootstarter\\intermediate\\build\\win64\\unrealeditor\\inc\\tp3shoot\\uht\\tp3shootgamemode.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\perso\\unrealp\\shooterai\\tp3shootstarter\\intermediate\\build\\win64\\x64\\tp3shooteditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\perso\\unrealp\\shooterai\\tp3shootstarter\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\tp3shoot\\definitions.tp3shoot.h",
+            "c:\\perso\\unrealp\\shooterai\\tp3shootstarter\\source\\tp3shoot\\tp3shootgamemode.h",
+            "c:\\perso\\cours\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "c:\\perso\\cours\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "c:\\perso\\cours\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "c:\\perso\\cours\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "c:\\perso\\unrealp\\shooterai\\tp3shootstarter\\intermediate\\build\\win64\\unrealeditor\\inc\\tp3shoot\\uht\\tp3shootgamemode.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
