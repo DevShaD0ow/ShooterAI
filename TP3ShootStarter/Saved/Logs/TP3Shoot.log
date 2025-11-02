@@ -1970,3 +1970,515 @@ Detoured run took 1.9s
 [2025.11.02-18.52.03:421][393]LogUObjectHash: Compacting FUObjectHashTables data took   2.05ms
 [2025.11.02-18.52.03:741][394]Display: Reload/Re-instancing Complete: 1 package changed, 4 classes unchanged
 [2025.11.02-18.52.03:741][394]LogLiveCoding: Display: Live coding succeeded
+[2025.11.02-18.53.31:132][782]LogUObjectHash: Compacting FUObjectHashTables data took   2.32ms
+[2025.11.02-18.53.31:136][782]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/ThirdPerson/Maps/ThirdPersonMap' took 0.054
+[2025.11.02-18.57.29:926][499]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 2154.044189
+[2025.11.02-18.57.30:917][502]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-18.57.30:917][502]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 2154.701660, Update Interval: 311.843628
+[2025.11.02-18.58.14:193][632]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected. InstanceID=1
+[2025.11.02-18.59.34:805][874]LogLiveCoding: Display: Starting Live Coding compile.
+[2025.11.02-19.00.37:695][ 62]LogLiveCoding: Display: UbaCli v5.7.0-Uba_v1.0.0-43528563 (Rootdir: "C:\ProgramData\Epic\UbaCli", StoreCapacity: 0Gb)
+
+---- Starting trace: Debug6e5bb8fd-f38f-4f0a-bf10-9e4ebccc8b98 ----
+Running C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\bin\Hostx64\x64\link.exe @C:\Users\alext\AppData\Local\Temp\54D4.tmp
+   CrÚation de la bibliothÞque C:\perso\unrealP\ShooterAI\TP3ShootStarter\Binaries\Win64\UnrealEditor-TP3Shoot.patch_3.lib et de l'objet C:\perso\unrealP\ShooterAI\TP3ShootStarter\Binaries\Win64\UnrealEditor-TP3Shoot.patch_3.exp
+Detoured run took 1.7s
+[2025.11.02-19.00.38:354][ 62]LogClass: UPackage /Script/TP3Shoot Reload.
+[2025.11.02-19.00.38:354][ 62]LogClass: UClass AIControllerShooter Reload.
+[2025.11.02-19.00.38:366][ 62]LogClass: Could not find existing class AIControllerShooter in package /Script/TP3Shoot for reload, assuming new or modified class
+[2025.11.02-19.00.38:447][ 62]Re-instancing AIControllerShooter after reload.
+[2025.11.02-19.00.38:888][ 62]LogUObjectHash: Compacting FUObjectHashTables data took   1.50ms
+[2025.11.02-19.00.39:143][ 63]Display: Reload/Re-instancing Complete: 1 package changed, 1 class changed, 3 classes unchanged
+[2025.11.02-19.00.39:143][ 63]LogLiveCoding: Warning: Live coding succeeded, data type changes may cause packaging to fail if assets reference the new or updated data types
+[2025.11.02-19.00.52:438][618]LogStreaming: Display: FlushAsyncLoading(411): 1 QueuedPackages, 0 AsyncPackages
+[2025.11.02-19.00.54:492][618]LogTexture: Display: Génération des textures : /Game/Characters/Mannequins/Textures/Manny/T_Manny_02_ASAOPMASK_MSK.T_Manny_02_ASAOPMASK_MSK (TFO_AutoDXT, 4096X4096 X1X1X1) (Estimation de la mémoire requise : 385.000 MB), Vitesse d'encodage : Fast
+[2025.11.02-19.00.54:515][618]LogTexture: Display: Génération des textures : /Game/Characters/Mannequins/Textures/Manny/T_Manny_02_D.T_Manny_02_D (TFO_AutoDXT, 4096X4096 X1X1X1) (Estimation de la mémoire requise : 385.000 MB), Vitesse d'encodage : Fast
+[2025.11.02-19.00.54:531][618]LogTexture: Display: Génération des textures : /Game/Characters/Mannequins/Textures/Manny/T_Manny_02_CCRCCPlastic_MSK.T_Manny_02_CCRCCPlastic_MSK (TFO_AutoDXT, 4096X4096 X1X1X1) (Estimation de la mémoire requise : 385.000 MB), Vitesse d'encodage : Fast
+[2025.11.02-19.00.54:536][618]LogTexture: Display: Génération des textures : /Game/Characters/Mannequins/Textures/Manny/T_Manny_02_MSR_MSK.T_Manny_02_MSR_MSK (TFO_AutoDXT, 4096X4096 X1X1X1) (Estimation de la mémoire requise : 385.000 MB), Vitesse d'encodage : Fast
+[2025.11.02-19.00.54:600][618]LogTexture: Display: Génération des textures : /Game/Characters/Mannequins/Textures/Manny/T_Manny_02_BN.T_Manny_02_BN (TFO_BC5, 4096X4096 X1X1X1) (Estimation de la mémoire requise : 385.499988 MB), Vitesse d'encodage : Fast
+[2025.11.02-19.00.55:509][618]LogSkeletalMesh: Display: En attente de la préparation des ressources surfacées 0/1 (SKM_Manny)...
+[2025.11.02-19.00.55:693][618]LogSkeletalMesh: Building Skeletal Mesh SKM_Manny...
+[2025.11.02-19.00.56:742][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.00.57:156][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.00.57:585][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.00.58:012][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.00.58:440][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.00.58:869][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.00.59:296][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.00.59:723][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.00.59:908][618]LogSkeletalMeshReduction: Reducing skeletal mesh for LOD 2 
+[2025.11.02-19.00.59:913][618]LogSkeletalMeshReduction: Reducing skeletal mesh for LOD 3 
+[2025.11.02-19.01.00:151][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.00:582][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.01:006][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.01:434][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.01:860][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.02:289][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.02:720][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.03:148][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.03:575][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.04:003][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.04:429][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.04:858][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.05:286][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.05:715][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.06:129][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.06:558][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.06:985][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.07:415][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.07:844][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.08:273][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.08:700][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.08:755][618]LogSkeletalMesh: Skeletal mesh [/Game/Characters/Mannequins/Meshes/SKM_Manny.SKM_Manny]: The derived data key is different after the build. Save the asset to avoid rebuilding it everytime the editor load it.
+[2025.11.02-19.01.08:795][618]LogSkeletalMesh: Built Skeletal Mesh [13.12s] /Game/Characters/Mannequins/Meshes/SKM_Manny.SKM_Manny
+[2025.11.02-19.01.08:800][618]LogAnimationCompression: Display: Building compressed animation data for AnimSequence /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_thigh_r_anim.Manny_thigh_r_anim (Required Memory Estimate: 6.41 MB)
+[2025.11.02-19.01.08:800][618]LogAnimationCompression: Display: Building compressed animation data for AnimSequence /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_upperarm_l_anim.Manny_upperarm_l_anim (Required Memory Estimate: 7.31 MB)
+[2025.11.02-19.01.08:800][618]LogAnimationCompression: Display: Building compressed animation data for AnimSequence /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_thigh_l_anim.Manny_thigh_l_anim (Required Memory Estimate: 6.41 MB)
+[2025.11.02-19.01.08:800][618]LogAnimationCompression: Display: Building compressed animation data for AnimSequence /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_lowerarm_r_anim.Manny_lowerarm_r_anim (Required Memory Estimate: 4.15 MB)
+[2025.11.02-19.01.08:800][618]LogAnimationCompression: Display: Building compressed animation data for AnimSequence /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_upperarm_r_anim.Manny_upperarm_r_anim (Required Memory Estimate: 7.31 MB)
+[2025.11.02-19.01.08:909][618]LogAnimationCompression: Display: Storing compressed animation data for /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_upperarm_r_anim.Manny_upperarm_r_anim, at AnimationSequence/fa71198a31939913a40cf6278c5a591eea7afae4
+[2025.11.02-19.01.09:002][618]LogAnimationCompression: Display: Building compressed animation data for AnimSequence /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_lowerarm_l_anim.Manny_lowerarm_l_anim (Required Memory Estimate: 4.15 MB)
+[2025.11.02-19.01.09:006][618]LogSlate: Warning: Slate: Had to block on waiting for a draw buffer
+[2025.11.02-19.01.09:026][618]LogAnimationCompression: Display: Storing compressed animation data for /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_lowerarm_r_anim.Manny_lowerarm_r_anim, at AnimationSequence/795c7fea0ee5b2b92f99e91c28f47ad451e8f2b9
+[2025.11.02-19.01.09:059][618]LogAnimationCompression: Display: Building compressed animation data for AnimSequence /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_hand_r_anim.Manny_hand_r_anim (Required Memory Estimate: 1.90 MB)
+[2025.11.02-19.01.09:061][618]LogAnimationCompression: Display: Storing compressed animation data for /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_thigh_l_anim.Manny_thigh_l_anim, at AnimationSequence/848cc8662c1a61d40d1ff8093dbe27618db851bd
+[2025.11.02-19.01.09:062][618]LogAnimationCompression: Display: Building compressed animation data for AnimSequence /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_hand_l_anim.Manny_hand_l_anim (Required Memory Estimate: 1.90 MB)
+[2025.11.02-19.01.09:064][618]LogAnimationCompression: Display: Storing compressed animation data for /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_thigh_r_anim.Manny_thigh_r_anim, at AnimationSequence/7518f03606622641cbf28dd3c8e8658d310d3921
+[2025.11.02-19.01.09:081][618]LogAnimationCompression: Display: Storing compressed animation data for /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_upperarm_l_anim.Manny_upperarm_l_anim, at AnimationSequence/21d601c8d456524bd40520fad303ecda9e72920e
+[2025.11.02-19.01.09:096][618]LogAnimationCompression: Display: Storing compressed animation data for /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_lowerarm_l_anim.Manny_lowerarm_l_anim, at AnimationSequence/15f5e6afa285a13b867663c8e02b50a87f50cafa
+[2025.11.02-19.01.09:124][619]LogAnimationCompression: Display: Building compressed animation data for AnimSequence /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_foot_l_anim.Manny_foot_l_anim (Required Memory Estimate: 1.45 MB)
+[2025.11.02-19.01.09:124][619]LogAnimationCompression: Display: Building compressed animation data for AnimSequence /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_clavicle_r_anim.Manny_clavicle_r_anim (Required Memory Estimate: 2.35 MB)
+[2025.11.02-19.01.09:125][619]LogAnimationCompression: Display: Building compressed animation data for AnimSequence /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_foot_r_anim.Manny_foot_r_anim (Required Memory Estimate: 1.45 MB)
+[2025.11.02-19.01.09:140][619]LogAnimationCompression: Display: Storing compressed animation data for /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_hand_r_anim.Manny_hand_r_anim, at AnimationSequence/7372135a8136d3f58030eebc19ec9e5b8388deb0
+[2025.11.02-19.01.09:149][619]LogAnimationCompression: Display: Storing compressed animation data for /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_hand_l_anim.Manny_hand_l_anim, at AnimationSequence/f3da45f733a0b918a8ecb85653b0b3ba7263556d
+[2025.11.02-19.01.09:166][619]LogChaosDD: Not creating Chaos Debug Draw Scene for world World_2
+[2025.11.02-19.01.09:180][619]LogAnimationCompression: Display: Storing compressed animation data for /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_foot_r_anim.Manny_foot_r_anim, at AnimationSequence/ad0230034dc1f3908cd602450c795cc43b441373
+[2025.11.02-19.01.09:185][619]LogAnimationCompression: Display: Building compressed animation data for AnimSequence /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_calf_r_anim.Manny_calf_r_anim (Required Memory Estimate: 2.35 MB)
+[2025.11.02-19.01.09:185][619]LogAnimationCompression: Display: Building compressed animation data for AnimSequence /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_calf_l_anim.Manny_calf_l_anim (Required Memory Estimate: 2.35 MB)
+[2025.11.02-19.01.09:207][619]LogAnimationCompression: Display: Building compressed animation data for AnimSequence /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_clavicle_l_anim.Manny_clavicle_l_anim (Required Memory Estimate: 2.35 MB)
+[2025.11.02-19.01.09:209][619]LogAnimationCompression: Display: Storing compressed animation data for /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_foot_l_anim.Manny_foot_l_anim, at AnimationSequence/ab949c5fae8ec872b5c56d71556f4087dd2c7efb
+[2025.11.02-19.01.09:239][619]LogAnimationCompression: Display: Storing compressed animation data for /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_clavicle_r_anim.Manny_clavicle_r_anim, at AnimationSequence/626fc61d418640fc99019dfb4069693722c782d1
+[2025.11.02-19.01.09:275][619]LogAnimationCompression: Display: Storing compressed animation data for /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_calf_l_anim.Manny_calf_l_anim, at AnimationSequence/8908b37d4039d860af7e7e2364363a6a75af0314
+[2025.11.02-19.01.09:295][619]LogAnimationCompression: Display: Storing compressed animation data for /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_calf_r_anim.Manny_calf_r_anim, at AnimationSequence/fe4e7295bc314f73c09ddabda60bd948b562bec3
+[2025.11.02-19.01.09:300][619]LogAnimationCompression: Display: Storing compressed animation data for /Game/Characters/Mannequins/Rigs/Poses/Manny/Manny_clavicle_l_anim.Manny_clavicle_l_anim, at AnimationSequence/bdb5f4452a12b67428b0964cb37e35a6b4f07117
+[2025.11.02-19.01.09:638][621]LogTexture: Display: Génération des textures : /Game/Characters/Mannequins/Textures/Manny/T_Manny_02_Tan.T_Manny_02_Tan (TFO_BC5, 4096X4096 X1X1X1) (Estimation de la mémoire requise : 385.499988 MB), Vitesse d'encodage : Fast
+[2025.11.02-19.01.09:698][622]LogTexture: Display: Génération des textures : /Game/Characters/Mannequins/Textures/Manny/T_Manny_02_N.T_Manny_02_N (TFO_BC5, 4096X4096 X1X1X1) (Estimation de la mémoire requise : 385.499988 MB), Vitesse d'encodage : Fast
+[2025.11.02-19.01.09:850][624]LogChaosDD: Not creating Chaos Debug Draw Scene for world World_3
+[2025.11.02-19.01.10:287][635]LogChaosDD: Not creating Chaos Debug Draw Scene for world World_4
+[2025.11.02-19.01.10:316][635]LogScript: Warning: Accès à "Aucun" lors de la tentative de lecture de(real) la propriété CallFunc_TryGetPawnOwner_ReturnValue en dehors d'une Uclass
+	ABP_Shooter_C /Engine/Transient.World_4:PersistentLevel.SkeletalMeshActor_0.SkeletalMeshComponent0.ABP_Shooter_C_0
+	Function /Game/Animations/ABP_Shooter.ABP_Shooter_C:ExecuteUbergraph_ABP_Shooter:0045
+[2025.11.02-19.01.10:317][635]LogScript: Warning: Accès à "Aucun" lors de la tentative de lecture de(real) la propriété CallFunc_TryGetPawnOwner_ReturnValue en dehors d'une Uclass
+	ABP_Shooter_C /Engine/Transient.World_4:PersistentLevel.SkeletalMeshActor_0.SkeletalMeshComponent0.ABP_Shooter_C_0
+	Function /Game/Animations/ABP_Shooter.ABP_Shooter_C:ExecuteUbergraph_ABP_Shooter:00F2
+[2025.11.02-19.01.10:317][635]LogScript: Warning: Accès à "Aucun" lors de la tentative de lecture de(real) la propriété CallFunc_TryGetPawnOwner_ReturnValue en dehors d'une Uclass
+	ABP_Shooter_C /Engine/Transient.World_4:PersistentLevel.SkeletalMeshActor_0.SkeletalMeshComponent0.ABP_Shooter_C_0
+	Function /Game/Animations/ABP_Shooter.ABP_Shooter_C:ExecuteUbergraph_ABP_Shooter:0124
+[2025.11.02-19.01.10:317][635]LogScript: Warning: Accès à "Aucun" lors de la tentative de lecture de(real) la propriété CallFunc_TryGetPawnOwner_ReturnValue en dehors d'une Uclass
+	ABP_Shooter_C /Engine/Transient.World_4:PersistentLevel.SkeletalMeshActor_0.SkeletalMeshComponent0.ABP_Shooter_C_0
+	Function /Game/Animations/ABP_Shooter.ABP_Shooter_C:ExecuteUbergraph_ABP_Shooter:01E8
+[2025.11.02-19.01.10:318][635]LogScript: Warning: Accès à "Aucun" lors de la tentative de lecture de(real) la propriété CallFunc_TryGetPawnOwner_ReturnValue en dehors d'une Uclass
+	ABP_Shooter_C /Engine/Transient.World_4:PersistentLevel.SkeletalMeshActor_0.SkeletalMeshComponent0.ABP_Shooter_C_0
+	Function /Game/Animations/ABP_Shooter.ABP_Shooter_C:ExecuteUbergraph_ABP_Shooter:0410
+[2025.11.02-19.01.23:649][794]LogSlate: Window 'Choisir la classe parente' being destroyed
+[2025.11.02-19.01.23:697][794]LogContentBrowser: Deferred new asset file creation: NewBlueprint
+[2025.11.02-19.01.23:742][794]LogContentBrowser: Creating deferred item: NewBlueprint
+[2025.11.02-19.01.23:811][796]LogContentBrowser: Renaming the item being created (Deferred Item: NewBlueprint).
+[2025.11.02-19.01.39:259][697]LogContentBrowser: Attempting asset rename: NewBlueprint -> BP_AIShooterController
+[2025.11.02-19.01.39:309][697]LogContentBrowser: End creating deferred item NewBlueprint
+[2025.11.02-19.01.40:897][784]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.11.02-19.01.41:056][784]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/Blueprints/BP_AIShooterController] ([2] browsable assets)...
+[2025.11.02-19.01.41:057][784]OBJ SavePackage: Finished generating thumbnails for package [/Game/Blueprints/BP_AIShooterController]
+[2025.11.02-19.01.41:057][784]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Blueprints/BP_AIShooterController" FILE="../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/Blueprints/BP_AIShooterController.uasset" SILENT=true
+[2025.11.02-19.01.41:092][784]LogWorldPartition: Can't find class descriptor '/Game/Blueprints/BP_AIShooterController.BP_AIShooterController_C' for saving '/Game/Blueprints/BP_AIShooterController.BP_AIShooterController_C'
+[2025.11.02-19.01.41:093][784]LogWorldPartition: Can't find class descriptor '/Game/Blueprints/BP_AIShooterController.BP_AIShooterController_C' for saving '/Game/Blueprints/BP_AIShooterController.BP_AIShooterController_C'
+[2025.11.02-19.01.41:097][784]LogSavePackage: Moving output files for package: /Game/Blueprints/BP_AIShooterController
+[2025.11.02-19.01.41:098][784]LogSavePackage: Moving '../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/BP_AIShooterController5D46D09444B2AB51E5674EB9AF856AE4.tmp' to '../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/Blueprints/BP_AIShooterController.uasset'
+[2025.11.02-19.01.41:146][784]LogFileHelpers: InternalPromptForCheckoutAndSave took 249.305 ms (total: 1.51 sec)
+[2025.11.02-19.01.41:352][784]LogContentValidation: Display: Starting to validate 1 assets
+[2025.11.02-19.01.41:353][784]LogContentValidation: Enabled validators:
+[2025.11.02-19.01.41:353][784]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2025.11.02-19.01.41:353][784]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.11.02-19.01.41:353][784]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.11.02-19.01.41:353][784]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2025.11.02-19.01.41:353][784]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.11.02-19.01.41:354][784]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2025.11.02-19.01.41:357][784]AssetCheck: /Game/Blueprints/BP_AIShooterController Validation de la ressource
+[2025.11.02-19.01.41:407][784]LogSourceControl: Display: Uncontrolled Changelist persistency file saved ../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/SourceControl/UncontrolledChangelists.json
+[2025.11.02-19.01.41:641][791]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Blueprints/BP_AIShooterController.BP_AIShooterController
+[2025.11.02-19.01.41:648][791]LogChaosDD: Not creating Chaos Debug Draw Scene for world World_5
+[2025.11.02-19.01.42:267][791]LogStreaming: Display: FlushAsyncLoading(412): 1 QueuedPackages, 0 AsyncPackages
+[2025.11.02-19.01.45:679][791]LogStaticMesh: Display: Génération de maillage statique PhAT_FloorBox (estimation de la mémoire requise : 0.024887 Mo)…
+[2025.11.02-19.01.45:684][791]LogStaticMesh: Built static mesh [0.01s] /Engine/EditorMeshes/PhAT_FloorBox.PhAT_FloorBox
+[2025.11.02-19.01.47:095][791]LogMeshUtilities: Finished distance field build in 1.4s - 126x126x21 sparse distance field, 0.6Mb total, 0.0Mb always loaded, 100% occupied, 0 triangles, PhAT_FloorBox
+[2025.11.02-19.02.14:061][124]LogSlate: Window 'BP_AIShooterController' being destroyed
+[2025.11.02-19.02.14:075][124]LogSlate: Window 'BP_AIShooterController' being destroyed
+[2025.11.02-19.02.14:107][124]LogWorld: UWorld::CleanupWorld for World_5, bSessionEnded=true, bCleanupResources=true
+[2025.11.02-19.02.14:113][124]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.11.02-19.02.14:315][124]LogUObjectHash: Compacting FUObjectHashTables data took   2.61ms
+[2025.11.02-19.02.43:309][503]LogContentBrowser: Deferred new asset file creation: NewBehaviorTree
+[2025.11.02-19.02.43:336][503]LogContentBrowser: Creating deferred item: NewBehaviorTree
+[2025.11.02-19.02.43:385][505]LogContentBrowser: Renaming the item being created (Deferred Item: NewBehaviorTree).
+[2025.11.02-19.02.51:003][956]LogContentBrowser: Attempting asset rename: NewBehaviorTree -> BT_IAComportement
+[2025.11.02-19.02.51:010][956]LogContentBrowser: End creating deferred item NewBehaviorTree
+[2025.11.02-19.03.41:493][935]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 2525.606445
+[2025.11.02-19.03.41:892][959]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-19.03.41:892][959]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 2525.989014, Update Interval: 334.488953
+[2025.11.02-19.03.43:437][ 52]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.11.02-19.03.43:592][ 52]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/BehaviorTree/BT_IAComportement] ([1] browsable assets)...
+[2025.11.02-19.03.43:592][ 52]OBJ SavePackage: Finished generating thumbnails for package [/Game/BehaviorTree/BT_IAComportement]
+[2025.11.02-19.03.43:592][ 52]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/BehaviorTree/BT_IAComportement" FILE="../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/BT_IAComportement.uasset" SILENT=true
+[2025.11.02-19.03.43:595][ 52]LogSavePackage: Moving output files for package: /Game/BehaviorTree/BT_IAComportement
+[2025.11.02-19.03.43:595][ 52]LogSavePackage: Moving '../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/BT_IAComportement7C4CCA4247A1B89EB10AE39CF04886BB.tmp' to '../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/BT_IAComportement.uasset'
+[2025.11.02-19.03.43:623][ 52]LogFileHelpers: InternalPromptForCheckoutAndSave took 185.614 ms (total: 1.69 sec)
+[2025.11.02-19.03.43:769][ 52]LogContentValidation: Display: Starting to validate 1 assets
+[2025.11.02-19.03.43:769][ 52]LogContentValidation: Enabled validators:
+[2025.11.02-19.03.43:769][ 52]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2025.11.02-19.03.43:769][ 52]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.11.02-19.03.43:769][ 52]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.11.02-19.03.43:769][ 52]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2025.11.02-19.03.43:769][ 52]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.11.02-19.03.43:769][ 52]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2025.11.02-19.03.43:769][ 52]AssetCheck: /Game/BehaviorTree/BT_IAComportement Validation de la ressource
+[2025.11.02-19.03.43:816][ 52]LogSourceControl: Display: Uncontrolled Changelist persistency file saved ../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/SourceControl/UncontrolledChangelists.json
+[2025.11.02-19.03.47:513][260]LogAssetEditorSubsystem: Opening Asset editor for BehaviorTree /Game/BehaviorTree/BT_IAComportement.BT_IAComportement
+[2025.11.02-19.03.48:897][261]LogUObjectHash: Compacting FUObjectHashTables data took   2.60ms
+[2025.11.02-19.03.48:901][261]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/ThirdPerson/Maps/ThirdPersonMap' took 0.082
+[2025.11.02-19.04.07:980][668]LogSlate: Window 'Enregistrer la ressource sous' being destroyed
+[2025.11.02-19.04.14:608][982]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.11.02-19.04.14:757][982]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/BehaviorTree/BT_IAComportement] ([1] browsable assets)...
+[2025.11.02-19.04.14:758][982]OBJ SavePackage: Finished generating thumbnails for package [/Game/BehaviorTree/BT_IAComportement]
+[2025.11.02-19.04.14:758][982]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/BehaviorTree/BT_IAComportement" FILE="../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/BT_IAComportement.uasset" SILENT=true
+[2025.11.02-19.04.14:763][982]LogSavePackage: Moving output files for package: /Game/BehaviorTree/BT_IAComportement
+[2025.11.02-19.04.14:764][982]LogSavePackage: Moving '../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/BT_IAComportement6C00CE44412B78834B57629FDF4D5870.tmp' to '../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/BT_IAComportement.uasset'
+[2025.11.02-19.04.14:788][982]LogFileHelpers: InternalPromptForCheckoutAndSave took 180.292 ms (total: 1.87 sec)
+[2025.11.02-19.04.14:957][982]LogContentValidation: Display: Starting to validate 1 assets
+[2025.11.02-19.04.14:957][982]LogContentValidation: Enabled validators:
+[2025.11.02-19.04.14:957][982]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2025.11.02-19.04.14:957][982]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.11.02-19.04.14:957][982]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.11.02-19.04.14:957][982]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2025.11.02-19.04.14:957][982]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.11.02-19.04.14:957][982]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2025.11.02-19.04.14:957][982]AssetCheck: /Game/BehaviorTree/BT_IAComportement Validation de la ressource
+[2025.11.02-19.04.15:784][ 18]LogSlate: Window 'BT_IAComportement' being destroyed
+[2025.11.02-19.04.15:814][ 18]LogSlate: Window 'BT_IAComportement' being destroyed
+[2025.11.02-19.04.18:298][151]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.11.02-19.04.18:450][151]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/BehaviorTree/AIBoard] ([1] browsable assets)...
+[2025.11.02-19.04.18:450][151]OBJ SavePackage: Finished generating thumbnails for package [/Game/BehaviorTree/AIBoard]
+[2025.11.02-19.04.18:450][151]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/BehaviorTree/AIBoard" FILE="../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/AIBoard.uasset" SILENT=true
+[2025.11.02-19.04.18:453][151]LogSavePackage: Moving output files for package: /Game/BehaviorTree/AIBoard
+[2025.11.02-19.04.18:453][151]LogSavePackage: Moving '../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/AIBoard3CC0182B47ABEF69E5BB3B87D3133578.tmp' to '../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/AIBoard.uasset'
+[2025.11.02-19.04.18:475][151]LogFileHelpers: InternalPromptForCheckoutAndSave took 176.574 ms (total: 2.05 sec)
+[2025.11.02-19.04.18:635][151]LogContentValidation: Display: Starting to validate 1 assets
+[2025.11.02-19.04.18:635][151]LogContentValidation: Enabled validators:
+[2025.11.02-19.04.18:635][151]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2025.11.02-19.04.18:635][151]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.11.02-19.04.18:635][151]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.11.02-19.04.18:635][151]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2025.11.02-19.04.18:635][151]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.11.02-19.04.18:636][151]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2025.11.02-19.04.18:636][151]AssetCheck: /Game/BehaviorTree/AIBoard Validation de la ressource
+[2025.11.02-19.04.18:683][151]LogSourceControl: Display: Uncontrolled Changelist persistency file saved ../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/SourceControl/UncontrolledChangelists.json
+[2025.11.02-19.10.09:092][747]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 2913.200439
+[2025.11.02-19.10.10:756][752]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-19.10.10:757][752]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 2914.531982, Update Interval: 317.159332
+[2025.11.02-19.13.49:788][407]LogUObjectHash: Compacting FUObjectHashTables data took  14.45ms
+[2025.11.02-19.13.49:829][407]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/ThirdPerson/Maps/ThirdPersonMap' took 0.484
+[2025.11.02-19.16.13:607][839]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 3277.717529
+[2025.11.02-19.16.14:607][842]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-19.16.14:607][842]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 3278.385010, Update Interval: 333.227325
+[2025.11.02-19.17.17:753][524]LogContentBrowser: Attempting asset rename: BT_IAComportement -> BT_Shooter
+[2025.11.02-19.17.18:212][524]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.11.02-19.17.18:213][524]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/BehaviorTree/BT_Shooter] ([1] browsable assets)...
+[2025.11.02-19.17.18:213][524]OBJ SavePackage: Finished generating thumbnails for package [/Game/BehaviorTree/BT_Shooter]
+[2025.11.02-19.17.18:213][524]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/BehaviorTree/BT_Shooter" FILE="../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/BT_Shooter.uasset" SILENT=true
+[2025.11.02-19.17.18:218][524]LogSavePackage: Moving output files for package: /Game/BehaviorTree/BT_Shooter
+[2025.11.02-19.17.18:218][524]LogSavePackage: Moving '../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/BT_Shooter868B64A64A479E8D2622CB8C2A1DA843.tmp' to '../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/BT_Shooter.uasset'
+[2025.11.02-19.17.18:224][524]LogFileHelpers: InternalPromptForCheckoutAndSave took 11.136 ms (total: 2.06 sec)
+[2025.11.02-19.17.18:310][524]LogUObjectHash: Compacting FUObjectHashTables data took   3.53ms
+[2025.11.02-19.17.18:357][524]LogUObjectHash: Compacting FUObjectHashTables data took   2.42ms
+[2025.11.02-19.17.18:401][524]LogUObjectHash: Compacting FUObjectHashTables data took   1.20ms
+[2025.11.02-19.17.18:588][524]LogContentValidation: Display: Starting to validate 1 assets
+[2025.11.02-19.17.18:588][524]LogContentValidation: Enabled validators:
+[2025.11.02-19.17.18:588][524]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2025.11.02-19.17.18:588][524]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.11.02-19.17.18:588][524]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.11.02-19.17.18:588][524]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2025.11.02-19.17.18:588][524]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.11.02-19.17.18:588][524]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2025.11.02-19.17.18:589][524]AssetCheck: /Game/BehaviorTree/BT_Shooter Validation de la ressource
+[2025.11.02-19.17.18:680][524]LogSourceControl: Display: Uncontrolled Changelist persistency file saved ../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/SourceControl/UncontrolledChangelists.json
+[2025.11.02-19.17.28:557][732]LogContentBrowser: Attempting asset rename: AIBoard -> BB_Shooter
+[2025.11.02-19.17.28:796][732]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.11.02-19.17.28:796][732]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/BehaviorTree/BT_Shooter] ([1] browsable assets)...
+[2025.11.02-19.17.28:796][732]OBJ SavePackage: Finished generating thumbnails for package [/Game/BehaviorTree/BT_Shooter]
+[2025.11.02-19.17.28:796][732]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/BehaviorTree/BT_Shooter" FILE="../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/BT_Shooter.uasset" SILENT=true
+[2025.11.02-19.17.28:799][732]LogSavePackage: Moving output files for package: /Game/BehaviorTree/BT_Shooter
+[2025.11.02-19.17.28:801][732]LogSavePackage: Moving '../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/BT_ShooterA9E9F462442D01072BD3A6B16EE9A3BA.tmp' to '../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/BT_Shooter.uasset'
+[2025.11.02-19.17.28:803][732]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/BehaviorTree/BB_Shooter] ([1] browsable assets)...
+[2025.11.02-19.17.28:803][732]OBJ SavePackage: Finished generating thumbnails for package [/Game/BehaviorTree/BB_Shooter]
+[2025.11.02-19.17.28:803][732]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/BehaviorTree/BB_Shooter" FILE="../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/BB_Shooter.uasset" SILENT=true
+[2025.11.02-19.17.28:806][732]LogSavePackage: Moving output files for package: /Game/BehaviorTree/BB_Shooter
+[2025.11.02-19.17.28:806][732]LogSavePackage: Moving '../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/BB_Shooter917647FA4F973A60DAB0FA9AACDF86FD.tmp' to '../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/BB_Shooter.uasset'
+[2025.11.02-19.17.28:809][732]LogFileHelpers: InternalPromptForCheckoutAndSave took 13.581 ms (total: 2.07 sec)
+[2025.11.02-19.17.28:866][732]LogUObjectHash: Compacting FUObjectHashTables data took   3.02ms
+[2025.11.02-19.17.28:914][732]LogUObjectHash: Compacting FUObjectHashTables data took   2.51ms
+[2025.11.02-19.17.28:959][732]LogUObjectHash: Compacting FUObjectHashTables data took   1.22ms
+[2025.11.02-19.17.29:148][732]LogContentValidation: Display: Starting to validate 2 assets
+[2025.11.02-19.17.29:149][732]LogContentValidation: Enabled validators:
+[2025.11.02-19.17.29:149][732]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2025.11.02-19.17.29:149][732]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.11.02-19.17.29:149][732]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.11.02-19.17.29:149][732]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2025.11.02-19.17.29:149][732]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.11.02-19.17.29:149][732]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2025.11.02-19.17.29:150][732]AssetCheck: /Game/BehaviorTree/BT_Shooter Validation de la ressource
+[2025.11.02-19.17.29:150][732]AssetCheck: /Game/BehaviorTree/BB_Shooter Validation de la ressource
+[2025.11.02-19.17.29:216][732]LogSourceControl: Display: Uncontrolled Changelist persistency file saved ../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/SourceControl/UncontrolledChangelists.json
+[2025.11.02-19.17.30:097][781]LogAssetEditorSubsystem: Opening Asset editor for BehaviorTree /Game/BehaviorTree/BT_Shooter.BT_Shooter
+[2025.11.02-19.17.37:726][ 32]LogSlate: Window 'Enregistrer la ressource sous' being destroyed
+[2025.11.02-19.18.29:906][193]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.11.02-19.18.30:064][193]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/BehaviorTree/BB_Shooter] ([1] browsable assets)...
+[2025.11.02-19.18.30:064][193]OBJ SavePackage: Finished generating thumbnails for package [/Game/BehaviorTree/BB_Shooter]
+[2025.11.02-19.18.30:064][193]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/BehaviorTree/BB_Shooter" FILE="../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/BB_Shooter.uasset" SILENT=true
+[2025.11.02-19.18.30:068][193]LogSavePackage: Moving output files for package: /Game/BehaviorTree/BB_Shooter
+[2025.11.02-19.18.30:070][193]LogSavePackage: Moving '../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/BB_Shooter78EB57B04197B031EA858E90EC1814EC.tmp' to '../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/BB_Shooter.uasset'
+[2025.11.02-19.18.30:094][193]LogFileHelpers: InternalPromptForCheckoutAndSave took 188.412 ms (total: 2.26 sec)
+[2025.11.02-19.18.30:256][193]LogContentValidation: Display: Starting to validate 1 assets
+[2025.11.02-19.18.30:256][193]LogContentValidation: Enabled validators:
+[2025.11.02-19.18.30:256][193]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2025.11.02-19.18.30:256][193]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.11.02-19.18.30:256][193]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.11.02-19.18.30:256][193]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2025.11.02-19.18.30:256][193]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.11.02-19.18.30:256][193]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2025.11.02-19.18.30:256][193]AssetCheck: /Game/BehaviorTree/BB_Shooter Validation de la ressource
+[2025.11.02-19.18.31:314][247]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.11.02-19.18.31:474][247]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/BehaviorTree/BT_Shooter] ([1] browsable assets)...
+[2025.11.02-19.18.31:475][247]OBJ SavePackage: Finished generating thumbnails for package [/Game/BehaviorTree/BT_Shooter]
+[2025.11.02-19.18.31:475][247]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/BehaviorTree/BT_Shooter" FILE="../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/BT_Shooter.uasset" SILENT=true
+[2025.11.02-19.18.31:478][247]LogSavePackage: Moving output files for package: /Game/BehaviorTree/BT_Shooter
+[2025.11.02-19.18.31:479][247]LogSavePackage: Moving '../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/BT_Shooter08E1A08E418007B332572990B33EFC04.tmp' to '../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/BehaviorTree/BT_Shooter.uasset'
+[2025.11.02-19.18.31:498][247]LogFileHelpers: InternalPromptForCheckoutAndSave took 184.214 ms (total: 2.44 sec)
+[2025.11.02-19.18.31:658][247]LogContentValidation: Display: Starting to validate 1 assets
+[2025.11.02-19.18.31:659][247]LogContentValidation: Enabled validators:
+[2025.11.02-19.18.31:659][247]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2025.11.02-19.18.31:659][247]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.11.02-19.18.31:659][247]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.11.02-19.18.31:659][247]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2025.11.02-19.18.31:659][247]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.11.02-19.18.31:659][247]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2025.11.02-19.18.31:659][247]AssetCheck: /Game/BehaviorTree/BT_Shooter Validation de la ressource
+[2025.11.02-19.18.34:983][419]LogSlate: Window 'BB_Shooter' being destroyed
+[2025.11.02-19.18.35:013][419]LogSlate: Window 'BB_Shooter' being destroyed
+[2025.11.02-19.18.43:492][596]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Blueprints/BP_AIShooterController.BP_AIShooterController
+[2025.11.02-19.18.43:495][596]LogChaosDD: Not creating Chaos Debug Draw Scene for world World_6
+[2025.11.02-19.19.06:011][465]LogLiveCoding: Display: Starting Live Coding compile.
+[2025.11.02-19.19.24:510][520]LogSlate: Window 'BP_AIShooterController' being destroyed
+[2025.11.02-19.19.24:516][520]LogSlate: Window 'BP_AIShooterController' being destroyed
+[2025.11.02-19.19.24:532][520]LogWorld: UWorld::CleanupWorld for World_6, bSessionEnded=true, bCleanupResources=true
+[2025.11.02-19.19.24:535][520]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.11.02-19.19.24:826][520]LogUObjectHash: Compacting FUObjectHashTables data took   3.10ms
+[2025.11.02-19.20.17:545][679]LogLiveCoding: Display: UbaCli v5.7.0-Uba_v1.0.0-43528563 (Rootdir: "C:\ProgramData\Epic\UbaCli", StoreCapacity: 0Gb)
+
+---- Starting trace: Debuge6d588c4-d572-4c52-b708-1b307ddee0e9 ----
+Running C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\bin\Hostx64\x64\link.exe @C:\Users\alext\AppData\Local\Temp\55A8.tmp
+   CrÚation de la bibliothÞque C:\perso\unrealP\ShooterAI\TP3ShootStarter\Binaries\Win64\UnrealEditor-TP3Shoot.patch_4.lib et de l'objet C:\perso\unrealP\ShooterAI\TP3ShootStarter\Binaries\Win64\UnrealEditor-TP3Shoot.patch_4.exp
+Detoured run took 1.7s
+[2025.11.02-19.20.18:196][679]LogClass: UPackage /Script/TP3Shoot Reload.
+[2025.11.02-19.20.18:196][679]LogClass: UClass AIControllerShooter Reload.
+[2025.11.02-19.20.18:197][679]LogClass: Could not find existing class AIControllerShooter in package /Script/TP3Shoot for reload, assuming new or modified class
+[2025.11.02-19.20.18:198][679]LogClass: Function OnTargetPerceptionUpdated is new or belongs to a modified class.
+[2025.11.02-19.20.18:300][679]Re-instancing AIControllerShooter after reload.
+[2025.11.02-19.20.18:955][679]LogUObjectHash: Compacting FUObjectHashTables data took   3.17ms
+[2025.11.02-19.20.21:268][680]Display: Reload/Re-instancing Complete: 1 package changed, 1 class changed, 3 classes unchanged
+[2025.11.02-19.20.21:268][680]LogLiveCoding: Warning: Live coding succeeded, data type changes may cause packaging to fail if assets reference the new or updated data types
+[2025.11.02-19.20.26:701][955]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Blueprints/BP_AIShooterController.BP_AIShooterController
+[2025.11.02-19.20.26:722][955]LogChaosDD: Not creating Chaos Debug Draw Scene for world World_7
+[2025.11.02-19.20.42:672][616]Cmd: TRANSACTION UNDO
+[2025.11.02-19.20.42:672][616]LogEditorTransaction: Undo Insérer un enfant
+[2025.11.02-19.22.14:806][544]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected. InstanceID=1
+[2025.11.02-19.22.19:171][557]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 3643.277100
+[2025.11.02-19.22.20:168][560]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-19.22.20:170][560]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 3643.943359, Update Interval: 305.059357
+[2025.11.02-19.22.25:498][576]LogLiveCoding: Display: Starting Live Coding compile.
+[2025.11.02-19.22.49:575][649]LogDerivedDataCache: C:/Users/alext/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:00.237 and deleted 0 files with total size 0 MiB and 229 empty folders. Scanned 0 files in 241 folders with total size 0 MiB.
+[2025.11.02-19.23.24:915][755]LogLiveCoding: Display: UbaCli v5.7.0-Uba_v1.0.0-43528563 (Rootdir: "C:\ProgramData\Epic\UbaCli", StoreCapacity: 0Gb)
+
+---- Starting trace: Debug500e0434-8ecc-4e2f-b7b1-d9bd5416f062 ----
+Running C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\bin\Hostx64\x64\link.exe @C:\Users\alext\AppData\Local\Temp\312B.tmp
+   CrÚation de la bibliothÞque C:\perso\unrealP\ShooterAI\TP3ShootStarter\Binaries\Win64\UnrealEditor-TP3Shoot.patch_5.lib et de l'objet C:\perso\unrealP\ShooterAI\TP3ShootStarter\Binaries\Win64\UnrealEditor-TP3Shoot.patch_5.exp
+Detoured run took 1.8s
+[2025.11.02-19.23.26:790][755]LogUObjectHash: Compacting FUObjectHashTables data took  10.36ms
+[2025.11.02-19.23.28:502][756]Display: Reload/Re-instancing Complete: 1 package changed, 4 classes unchanged, 1 function remapped
+[2025.11.02-19.23.28:503][756]LogLiveCoding: Display: Live coding succeeded
+[2025.11.02-19.23.50:833][822]LogUObjectHash: Compacting FUObjectHashTables data took   9.75ms
+[2025.11.02-19.23.50:840][822]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/ThirdPerson/Maps/ThirdPersonMap' took 0.428
+[2025.11.02-19.23.50:854][822]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/Blueprints/BP_AIShooterController] ([2] browsable assets)...
+[2025.11.02-19.23.50:855][822]OBJ SavePackage: Finished generating thumbnails for package [/Game/Blueprints/BP_AIShooterController]
+[2025.11.02-19.23.50:917][822]LogWorldPartition: Can't find class descriptor '/Game/Blueprints/BP_AIShooterController.BP_AIShooterController_C' for saving '/Game/Blueprints/BP_AIShooterController.BP_AIShooterController_C'
+[2025.11.02-19.23.50:919][822]LogWorldPartition: Can't find class descriptor '/Game/Blueprints/BP_AIShooterController.BP_AIShooterController_C' for saving '/Game/Blueprints/BP_AIShooterController.BP_AIShooterController_C'
+[2025.11.02-19.23.50:927][822]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/Blueprints/BP_AIShooterController_Auto1
+[2025.11.02-19.23.50:928][822]LogSavePackage: Moving '../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/BP_AIShooterController_Auto1F71BE6034C1B1A930FCCF98941755D76.tmp' to '../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/Autosaves/Game/Blueprints/BP_AIShooterController_Auto1.uasset'
+[2025.11.02-19.23.50:946][822]LogFileHelpers: Auto-saving content packages took 0.104
+[2025.11.02-19.26.08:038][316]LogSlate: Window 'BP_AIShooterController' being destroyed
+[2025.11.02-19.26.08:078][316]LogSlate: Window 'BP_AIShooterController' being destroyed
+[2025.11.02-19.26.08:137][316]LogWorld: UWorld::CleanupWorld for World_7, bSessionEnded=true, bCleanupResources=true
+[2025.11.02-19.26.08:146][316]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.11.02-19.26.08:491][316]LogUObjectHash: Compacting FUObjectHashTables data took   4.05ms
+[2025.11.02-19.28.10:651][757]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 3994.748291
+[2025.11.02-19.28.11:650][760]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-19.28.11:650][760]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 3995.415283, Update Interval: 347.407440
+[2025.11.02-19.34.44:698][939]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 4388.811523
+[2025.11.02-19.34.45:698][942]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-19.34.45:698][942]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 4389.479004, Update Interval: 308.924835
+[2025.11.02-19.39.22:345][858]LogDebuggerCommands: Repeating last play command: Hublot sélectionné
+[2025.11.02-19.39.22:376][858]LogContentBundle: [ThirdPersonMap(Éditeur)] Generating Streaming for 0 Content Bundles.
+[2025.11.02-19.39.22:377][858]LogWorldPartition: Display: GenerateStreaming for 'ThirdPersonMap' started...
+[2025.11.02-19.39.22:400][858]MapCheck: Un acteur doit être enregistré à nouveau /Game/ThirdPerson/Maps/ThirdPersonMap.WorldDataLayers 
+[2025.11.02-19.39.22:406][858]LogWorldPartition: FSpatialHashSettings::UpdateSettings : UseAlignedGridLevels = 1, SnapNonAlignedGridLevelsToLowerLevels = 1, PlaceSmallActorsUsingLocation = 0, PlacePartitionActorsUsingLocation = 1
+[2025.11.02-19.39.22:408][858]LogWorldPartition: Display: GenerateStreaming for 'ThirdPersonMap' took 31.788 ms (total: 37.950 ms)
+[2025.11.02-19.39.22:441][858]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2025.11.02-19.39.22:464][858]LogPlayLevel: Creating play world package: /Game/ThirdPerson/Maps/UEDPIE_0_ThirdPersonMap
+[2025.11.02-19.39.22:574][858]LogWorldPartition: Display: UWorldPartition::PostDuplicatePIE started...
+[2025.11.02-19.39.22:578][858]LogWorldPartition: Display: UWorldPartition::PostDuplicatePIE took 3.493 ms (total: 7.724 ms)
+[2025.11.02-19.39.22:580][858]LogPlayLevel: PIE: StaticDuplicateObject took: (0.114784s)
+[2025.11.02-19.39.22:580][858]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap to /Game/ThirdPerson/Maps/UEDPIE_0_ThirdPersonMap.ThirdPersonMap (0.116150s)
+[2025.11.02-19.39.22:631][858]LogUObjectHash: Compacting FUObjectHashTables data took   2.89ms
+[2025.11.02-19.39.22:645][858]LogChaosDD: Creating Chaos Debug Draw Scene for world ThirdPersonMap
+[2025.11.02-19.39.22:734][858]LogWorldPartition: ULevel::OnLevelLoaded(ThirdPersonMap)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2025.11.02-19.39.22:734][858]LogWorldPartition: Display: WorldPartition initialize started...
+[2025.11.02-19.39.22:735][858]LogWorldPartition: UWorldPartition::Initialize : World = /Game/ThirdPerson/Maps/UEDPIE_0_ThirdPersonMap.ThirdPersonMap, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 0, IsCooking = 0
+[2025.11.02-19.39.22:735][858]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2025.11.02-19.39.22:747][858]LogWorldPartition: Display: WorldPartition initialize took 11.837 ms (total: 221.595 ms)
+[2025.11.02-19.39.22:752][858]LogPlayLevel: PIE: World Init took: (0.109915s)
+[2025.11.02-19.39.22:758][858]LogAudio: Display: Creating Audio Device:                 Id: 3, Scope: Unique, Realtime: True
+[2025.11.02-19.39.22:762][858]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2025.11.02-19.39.22:762][858]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2025.11.02-19.39.22:762][858]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2025.11.02-19.39.22:762][858]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2025.11.02-19.39.22:762][858]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2025.11.02-19.39.22:762][858]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2025.11.02-19.39.22:762][858]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2025.11.02-19.39.22:762][858]LogAudio: Display: AudioDevice MaxSources: 32
+[2025.11.02-19.39.22:765][858]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2025.11.02-19.39.22:765][858]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2025.11.02-19.39.22:766][858]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2025.11.02-19.39.22:777][858]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2025.11.02-19.39.22:905][858]LogAudioMixer: Display: Using Audio Hardware Device Speaker (Realtek(R) Audio)
+[2025.11.02-19.39.22:922][858]LogAudioMixer: Display: Initializing Sound Submixes...
+[2025.11.02-19.39.22:923][858]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2025.11.02-19.39.22:925][858]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2025.11.02-19.39.22:934][858]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called. InstanceID=3
+[2025.11.02-19.39.22:934][858]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=3
+[2025.11.02-19.39.22:941][858]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=3
+[2025.11.02-19.39.22:941][858]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=3
+[2025.11.02-19.39.22:941][858]LogInit: FAudioDevice initialized with ID 3.
+[2025.11.02-19.39.22:942][858]LogAudio: Display: Audio Device (ID: 3) registered with world 'ThirdPersonMap'.
+[2025.11.02-19.39.22:945][858]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 3
+[2025.11.02-19.39.23:077][858]LogLoad: Game class is 'TP3ShootGameMode'
+[2025.11.02-19.39.23:180][858]LogWorld: Bringing World /Game/ThirdPerson/Maps/UEDPIE_0_ThirdPersonMap.ThirdPersonMap up for play (max tick rate 60) at 2025.11.02-14.39.23
+[2025.11.02-19.39.23:185][858]LogWorld: Bringing up level for play took: 0.107154
+[2025.11.02-19.39.23:212][858]LogOnline: OSS: Created online subsystem instance for: :Context_10
+[2025.11.02-19.39.23:277][858]PIE: Serveur connecté
+[2025.11.02-19.39.23:283][858]PIE: Play in Editor : temps total de démarrage 0,915 secondes.
+[2025.11.02-19.40.02:171][ 99]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2025.11.02-19.40.02:172][ 99]LogWorld: BeginTearingDown for /Game/ThirdPerson/Maps/UEDPIE_0_ThirdPersonMap
+[2025.11.02-19.40.02:175][ 99]LogCrowdFollowing: Warning: Unable to find RecastNavMesh instance while trying to create UCrowdManager instance
+[2025.11.02-19.40.02:178][ 99]LogWorld: UWorld::CleanupWorld for ThirdPersonMap, bSessionEnded=true, bCleanupResources=true
+[2025.11.02-19.40.02:185][ 99]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.11.02-19.40.02:186][ 99]LogWorldPartition: UWorldPartition::Uninitialize : World = /Game/ThirdPerson/Maps/UEDPIE_0_ThirdPersonMap.ThirdPersonMap
+[2025.11.02-19.40.02:204][ 99]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2025.11.02-19.40.02:217][ 99]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.11.02-19.40.02:268][ 99]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2025.11.02-19.40.02:272][ 99]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 3
+[2025.11.02-19.40.02:275][ 99]LogAudioMixer: Display: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=3, StreamState=4
+[2025.11.02-19.40.02:294][ 99]LogAudioMixer: Display: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=3, StreamState=2
+[2025.11.02-19.40.02:350][ 99]LogUObjectHash: Compacting FUObjectHashTables data took   3.03ms
+[2025.11.02-19.40.02:508][100]LogPlayLevel: Display: Destroying online subsystem :Context_10
+[2025.11.02-19.40.05:561][257]LogStreaming: Display: FlushAsyncLoading(609): 1 QueuedPackages, 0 AsyncPackages
+[2025.11.02-19.40.15:030][592]LogChaosDD: Not creating Chaos Debug Draw Scene for world World_8
+[2025.11.02-19.40.27:395][181]LogShaderCompilers: Display: ================================================
+[2025.11.02-19.40.27:395][181]LogShaderCompilers: Display: === FShaderJobCache stats ===
+[2025.11.02-19.40.27:395][181]LogShaderCompilers: Display: Total job queries 3 142, among them cache hits 1 072 (34.12%), DDC hits 2 004 (63.78%), Duplicates 49 (1.56%)
+[2025.11.02-19.40.27:395][181]LogShaderCompilers: Display: Tracking 2 021 distinct input hashes that result in 1 281 distinct outputs (63.38%)
+[2025.11.02-19.40.27:395][181]LogShaderCompilers: Display: RAM used: 12,84 MiB of 819,20 MiB budget. Usage: 1.57%
+[2025.11.02-19.40.27:396][181]LogShaderCompilers: Display: === Shader Compilation stats ===
+[2025.11.02-19.40.27:396][181]LogShaderCompilers: Display: Shaders Compiled: 17
+[2025.11.02-19.40.27:396][181]LogShaderCompilers: Display: Jobs assigned 17, completed 17 (100%)
+[2025.11.02-19.40.27:396][181]LogShaderCompilers: Display: Average time worker was idle: 2323.44 s
+[2025.11.02-19.40.27:396][181]LogShaderCompilers: Display: Time job spent in pending queue: average 3.54 s, longest 14.83 s
+[2025.11.02-19.40.27:396][181]LogShaderCompilers: Display: Job execution time: average 15.87 s, max 32.74 s
+[2025.11.02-19.40.27:396][181]LogShaderCompilers: Display: Job life time (pending + execution): average 19.40 s, max 32.76
+[2025.11.02-19.40.27:396][181]LogShaderCompilers: Display: Shader code size: total 173,465 KiB, numShaders 18, average 9,637 KiB, min 2,777 KiB, max 13,52 KiB
+[2025.11.02-19.40.27:397][181]LogShaderCompilers: Display: Time at least one job was in flight (either pending or executed): 36.61 s
+[2025.11.02-19.40.27:397][181]LogShaderCompilers: Display: Mutex wait stall in FShaderJobCache::SubmitJobs:  0.03%
+[2025.11.02-19.40.27:397][181]LogShaderCompilers: Display: Jobs were issued in 17 batches (only local compilation was used), average 1.00 jobs/batch
+[2025.11.02-19.40.27:397][181]LogShaderCompilers: Display: Average processing rate: 0.46 jobs/sec
+[2025.11.02-19.40.27:397][181]LogShaderCompilers: Display: Total thread time: 124,074 s
+[2025.11.02-19.40.27:397][181]LogShaderCompilers: Display: Total thread preprocess time: 102,274 s
+[2025.11.02-19.40.27:397][181]LogShaderCompilers: Display: Percentage time preprocessing: 82.43%
+[2025.11.02-19.40.27:397][181]LogShaderCompilers: Display: Effective parallelization: 3.39 (times faster than compiling all shaders on one thread). Compare with number of workers: 8 - 0.423594
+[2025.11.02-19.40.27:397][181]LogShaderCompilers: Display: Top 5 most expensive shader types by average time:
+[2025.11.02-19.40.27:397][181]LogShaderCompilers: Display:                                                  FVelocityPS (compiled    1 times, average 13.01 sec, max 13.01 sec, min 13.01 sec)
+[2025.11.02-19.40.27:397][181]LogShaderCompilers: Display:                                                  FHitProxyPS (compiled    1 times, average 9.03 sec, max 9.03 sec, min 9.03 sec)
+[2025.11.02-19.40.27:397][181]LogShaderCompilers: Display:                                                  FHitProxyVS (compiled    1 times, average 9.03 sec, max 9.03 sec, min 9.03 sec)
+[2025.11.02-19.40.27:398][181]LogShaderCompilers: Display:                                 TBasePassPSFNoLightMapPolicy (compiled    7 times, average 7.29 sec, max 12.69 sec, min 1.44 sec)
+[2025.11.02-19.40.27:398][181]LogShaderCompilers: Display:                                 TBasePassVSFNoLightMapPolicy (compiled    7 times, average 5.28 sec, max 9.07 sec, min 1.03 sec)
+[2025.11.02-19.40.27:398][181]LogShaderCompilers: Display: Top 5 shader types by total compile time:
+[2025.11.02-19.40.27:398][181]LogShaderCompilers: Display:                                 TBasePassPSFNoLightMapPolicy - 41.10% of total time (compiled    7 times, average 7.29 sec, max 12.69 sec, min 1.44 sec)
+[2025.11.02-19.40.27:398][181]LogShaderCompilers: Display:                                 TBasePassVSFNoLightMapPolicy - 29.77% of total time (compiled    7 times, average 5.28 sec, max 9.07 sec, min 1.03 sec)
+[2025.11.02-19.40.27:398][181]LogShaderCompilers: Display:                                                  FVelocityPS - 10.49% of total time (compiled    1 times, average 13.01 sec, max 13.01 sec, min 13.01 sec)
+[2025.11.02-19.40.27:398][181]LogShaderCompilers: Display:                                                  FHitProxyPS - 7.28% of total time (compiled    1 times, average 9.03 sec, max 9.03 sec, min 9.03 sec)
+[2025.11.02-19.40.27:398][181]LogShaderCompilers: Display:                                                  FHitProxyVS - 7.28% of total time (compiled    1 times, average 9.03 sec, max 9.03 sec, min 9.03 sec)
+[2025.11.02-19.40.27:398][181]LogShaderCompilers: Display: === Material stats ===
+[2025.11.02-19.40.27:398][181]LogShaderCompilers: Display: Materials Cooked:        0
+[2025.11.02-19.40.27:398][181]LogShaderCompilers: Display: Materials Translated:    153
+[2025.11.02-19.40.27:398][181]LogShaderCompilers: Display: Material Total Translate Time: 0.75 s
+[2025.11.02-19.40.27:399][181]LogShaderCompilers: Display: Material Translation Only: 0.20 s (27%)
+[2025.11.02-19.40.27:399][181]LogShaderCompilers: Display: Material DDC Serialization Only: 0.00 s (0%)
+[2025.11.02-19.40.27:400][181]LogShaderCompilers: Display: Material Cache Hits: 0 (0%)
+[2025.11.02-19.40.27:400][181]LogShaderCompilers: Display: ================================================
+[2025.11.02-19.40.52:084][457]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 4756.222656
+[2025.11.02-19.40.52:193][463]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-19.40.52:193][464]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 4756.312500, Update Interval: 305.778992
+[2025.11.02-19.46.46:937][655]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 5111.060547
+[2025.11.02-19.46.47:072][662]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-19.46.47:072][662]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 5111.176270, Update Interval: 302.581879
+[2025.11.02-19.52.29:920][148]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 5454.025391
+[2025.11.02-19.52.30:035][154]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-19.52.30:035][154]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 5454.119141, Update Interval: 348.308350
+[2025.11.02-19.58.50:279][610]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 5834.384277
+[2025.11.02-19.58.50:506][622]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-19.58.50:506][622]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 5834.590332, Update Interval: 305.458527
+[2025.11.02-20.04.30:022][747]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 6174.119629
+[2025.11.02-20.04.30:134][753]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-20.04.30:134][753]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 6174.211914, Update Interval: 347.555786
+[2025.11.02-20.10.50:729][109]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 6554.811523
+[2025.11.02-20.10.50:845][115]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-20.10.50:845][115]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 6554.907227, Update Interval: 350.042419
+[2025.11.02-20.17.40:353][909]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 6964.461426
+[2025.11.02-20.17.40:482][916]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-20.17.40:482][916]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 6964.572266, Update Interval: 350.807831
+[2025.11.02-20.22.49:364][529]LogDerivedDataCache: C:/Users/alext/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:00.026 and deleted 0 files with total size 0 MiB and 10 empty folders. Scanned 0 files in 12 folders with total size 0 MiB.
+[2025.11.02-20.24.27:710][804]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 7371.831543
+[2025.11.02-20.24.27:821][810]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-20.24.27:821][810]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 7371.923828, Update Interval: 336.014282
+[2025.11.02-20.30.45:750][203]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 7749.819336
+[2025.11.02-20.30.46:458][239]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.11.02-20.30.46:459][239]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 7750.507812, Update Interval: 302.312683
+[2025.11.02-22.32.48:702][445]LogUObjectHash: Compacting FUObjectHashTables data took  23.82ms
+[2025.11.02-22.32.51:486][445]LogSlate: Window 'Enregistrer le contenu' being destroyed
+[2025.11.02-22.32.51:556][445]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.11.02-22.32.51:832][445]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/Blueprints/BP_AIShooterController] ([2] browsable assets)...
+[2025.11.02-22.32.51:834][445]OBJ SavePackage: Finished generating thumbnails for package [/Game/Blueprints/BP_AIShooterController]
+[2025.11.02-22.32.51:835][445]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Blueprints/BP_AIShooterController" FILE="../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/Blueprints/BP_AIShooterController.uasset" SILENT=true
+[2025.11.02-22.32.52:029][445]LogWorldPartition: Can't find class descriptor '/Game/Blueprints/BP_AIShooterController.BP_AIShooterController_C' for saving '/Game/Blueprints/BP_AIShooterController.BP_AIShooterController_C'
+[2025.11.02-22.32.52:033][445]LogWorldPartition: Can't find class descriptor '/Game/Blueprints/BP_AIShooterController.BP_AIShooterController_C' for saving '/Game/Blueprints/BP_AIShooterController.BP_AIShooterController_C'
+[2025.11.02-22.32.52:052][445]LogSavePackage: Moving output files for package: /Game/Blueprints/BP_AIShooterController
+[2025.11.02-22.32.52:057][445]LogSavePackage: Moving '../../../../../unrealP/ShooterAI/TP3ShootStarter/Saved/BP_AIShooterController91FF337949C8F202127C33B841EBAEA7.tmp' to '../../../../../unrealP/ShooterAI/TP3ShootStarter/Content/Blueprints/BP_AIShooterController.uasset'
+[2025.11.02-22.32.52:137][445]LogFileHelpers: InternalPromptForCheckoutAndSave took 580.843 ms (total: 3.03 sec)
+[2025.11.02-22.32.52:300][445]LogStall: Shutdown...
+[2025.11.02-22.32.52:301][445]LogStall: Shutdown complete.
+[2025.11.02-22.32.52:489][445]LogSlate: Window 'TP3Shoot - Unreal Editor' being destroyed

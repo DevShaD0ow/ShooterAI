@@ -16,10 +16,17 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
+class AActor;
+struct FAIStimulus;
+
 // ********** Begin Class AAIControllerShooter *****************************************************
+#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIControllerShooter_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execOnTargetPerceptionUpdated);
+
+
 TP3SHOOT_API UClass* Z_Construct_UClass_AAIControllerShooter_NoRegister();
 
-#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIControllerShooter_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIControllerShooter_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAAIControllerShooter(); \
 	friend struct Z_Construct_UClass_AAIControllerShooter_Statics; \
@@ -30,24 +37,23 @@ public: \
 	DECLARE_SERIALIZER(AAIControllerShooter)
 
 
-#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIControllerShooter_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AAIControllerShooter(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIControllerShooter_h_16_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AAIControllerShooter(AAIControllerShooter&&) = delete; \
 	AAIControllerShooter(const AAIControllerShooter&) = delete; \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AAIControllerShooter); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AAIControllerShooter); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AAIControllerShooter) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AAIControllerShooter) \
 	NO_API virtual ~AAIControllerShooter();
 
 
-#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIControllerShooter_h_12_PROLOG
-#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIControllerShooter_h_15_GENERATED_BODY \
+#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIControllerShooter_h_13_PROLOG
+#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIControllerShooter_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIControllerShooter_h_15_INCLASS_NO_PURE_DECLS \
-	FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIControllerShooter_h_15_ENHANCED_CONSTRUCTORS \
+	FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIControllerShooter_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIControllerShooter_h_16_INCLASS_NO_PURE_DECLS \
+	FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIControllerShooter_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
