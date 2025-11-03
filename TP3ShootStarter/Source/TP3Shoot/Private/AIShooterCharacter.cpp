@@ -1,5 +1,8 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+#include "AIShooterCharacter.h"
+#include "AIControllerShooter.h"
 
-
-#include "TP3Shoot/Public/AIShooterCharacter.h"
-
+AAIShooterCharacter::AAIShooterCharacter()
+{
+	AIControllerClass = AAIControllerShooter::StaticClass();
+	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
+}

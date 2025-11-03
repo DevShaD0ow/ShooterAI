@@ -12,6 +12,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeTP3ShootCharacter() {}
 
 // ********** Begin Cross Module References ********************************************************
+AIMODULE_API UClass* Z_Construct_UClass_UAIPerceptionStimuliSourceComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
@@ -98,6 +99,11 @@ struct Z_Construct_UClass_ATP3ShootCharacter_Statics
 		{ "ToolTip", "Base turn rate, in deg/sec. Other scaling may affect final turn rate." },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_StimuliSource_MetaData[] = {
+		{ "Category", "AI" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "TP3ShootCharacter.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SK_Gun_MetaData[] = {
 		{ "Category", "Mesh" },
 #if !UE_BUILD_SHIPPING
@@ -163,6 +169,7 @@ struct Z_Construct_UClass_ATP3ShootCharacter_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CameraBoom;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FollowCamera;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_TurnRateGamepad;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_StimuliSource;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_SK_Gun;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ParticleStart;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ParticleImpact;
@@ -181,6 +188,7 @@ struct Z_Construct_UClass_ATP3ShootCharacter_Statics
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATP3ShootCharacter_Statics::NewProp_CameraBoom = { "CameraBoom", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATP3ShootCharacter, CameraBoom), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CameraBoom_MetaData), NewProp_CameraBoom_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATP3ShootCharacter_Statics::NewProp_FollowCamera = { "FollowCamera", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATP3ShootCharacter, FollowCamera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FollowCamera_MetaData), NewProp_FollowCamera_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ATP3ShootCharacter_Statics::NewProp_TurnRateGamepad = { "TurnRateGamepad", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATP3ShootCharacter, TurnRateGamepad), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TurnRateGamepad_MetaData), NewProp_TurnRateGamepad_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATP3ShootCharacter_Statics::NewProp_StimuliSource = { "StimuliSource", nullptr, (EPropertyFlags)0x00200800000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATP3ShootCharacter, StimuliSource), Z_Construct_UClass_UAIPerceptionStimuliSourceComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StimuliSource_MetaData), NewProp_StimuliSource_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATP3ShootCharacter_Statics::NewProp_SK_Gun = { "SK_Gun", nullptr, (EPropertyFlags)0x00200800000b0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATP3ShootCharacter, SK_Gun), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SK_Gun_MetaData), NewProp_SK_Gun_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATP3ShootCharacter_Statics::NewProp_ParticleStart = { "ParticleStart", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATP3ShootCharacter, ParticleStart), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ParticleStart_MetaData), NewProp_ParticleStart_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATP3ShootCharacter_Statics::NewProp_ParticleImpact = { "ParticleImpact", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATP3ShootCharacter, ParticleImpact), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ParticleImpact_MetaData), NewProp_ParticleImpact_MetaData) };
@@ -199,6 +207,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATP3Shoot
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATP3ShootCharacter_Statics::NewProp_CameraBoom,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATP3ShootCharacter_Statics::NewProp_FollowCamera,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATP3ShootCharacter_Statics::NewProp_TurnRateGamepad,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATP3ShootCharacter_Statics::NewProp_StimuliSource,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATP3ShootCharacter_Statics::NewProp_SK_Gun,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATP3ShootCharacter_Statics::NewProp_ParticleStart,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATP3ShootCharacter_Statics::NewProp_ParticleImpact,
@@ -243,10 +252,10 @@ ATP3ShootCharacter::~ATP3ShootCharacter() {}
 struct Z_CompiledInDeferFile_FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h__Script_TP3Shoot_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ATP3ShootCharacter, ATP3ShootCharacter::StaticClass, TEXT("ATP3ShootCharacter"), &Z_Registration_Info_UClass_ATP3ShootCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATP3ShootCharacter), 1389755127U) },
+		{ Z_Construct_UClass_ATP3ShootCharacter, ATP3ShootCharacter::StaticClass, TEXT("ATP3ShootCharacter"), &Z_Registration_Info_UClass_ATP3ShootCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATP3ShootCharacter), 465057760U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h__Script_TP3Shoot_3862394033(TEXT("/Script/TP3Shoot"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h__Script_TP3Shoot_1948279176(TEXT("/Script/TP3Shoot"),
 	Z_CompiledInDeferFile_FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h__Script_TP3Shoot_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h__Script_TP3Shoot_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

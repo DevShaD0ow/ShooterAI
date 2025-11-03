@@ -19,7 +19,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 // ********** Begin Class ATP3ShootCharacter *******************************************************
 TP3SHOOT_API UClass* Z_Construct_UClass_ATP3ShootCharacter_NoRegister();
 
-#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h_12_INCLASS_NO_PURE_DECLS \
+#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h_11_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesATP3ShootCharacter(); \
 	friend struct Z_Construct_UClass_ATP3ShootCharacter_Statics; \
@@ -30,7 +30,7 @@ public: \
 	DECLARE_SERIALIZER(ATP3ShootCharacter)
 
 
-#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h_12_ENHANCED_CONSTRUCTORS \
+#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h_11_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	ATP3ShootCharacter(ATP3ShootCharacter&&) = delete; \
 	ATP3ShootCharacter(const ATP3ShootCharacter&) = delete; \
@@ -40,12 +40,12 @@ public: \
 	NO_API virtual ~ATP3ShootCharacter();
 
 
-#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h_9_PROLOG
-#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h_12_GENERATED_BODY \
+#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h_8_PROLOG
+#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h_11_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h_12_INCLASS_NO_PURE_DECLS \
-	FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h_12_ENHANCED_CONSTRUCTORS \
+	FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h_11_INCLASS_NO_PURE_DECLS \
+	FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_TP3ShootCharacter_h_11_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

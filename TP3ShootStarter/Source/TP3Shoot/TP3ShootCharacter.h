@@ -1,9 +1,8 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Perception/AIPerceptionStimuliSourceComponent.h"
 #include "TP3ShootCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -29,6 +28,9 @@ public:
 
 protected:
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AI")
+	UAIPerceptionStimuliSourceComponent* StimuliSource;
+	
 	// Add a gun skeletal mesh component
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
 	class USkeletalMeshComponent* SK_Gun;

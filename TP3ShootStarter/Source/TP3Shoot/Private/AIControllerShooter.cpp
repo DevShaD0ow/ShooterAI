@@ -1,73 +1,73 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
-#include "TP3Shoot/Public/AIControllerShooter.h"
-
-#include "Perception/AIPerceptionComponent.h"
-#include "Perception/AISenseConfig_Sight.h"
-#include "TP3Shoot/Public/AIShooterCharacter.h"
-
+#include "AIControllerShooter.h"
+#include "Perception/AISense_Sight.h"
+#include "BehaviorTree/BlackboardData.h"
+#include "BehaviorTree/BehaviorTree.h"
+#include "AIShooterCharacter.h"
 
 AAIControllerShooter::AAIControllerShooter()
 {
-	// Création des composants
+	// Composants de perception
 	AIPerceptionComponent = CreateDefaultSubobject<UAIPerceptionComponent>(TEXT("AIPerceptionComponent"));
 	SightConfig = CreateDefaultSubobject<UAISenseConfig_Sight>(TEXT("SightConfig"));
 	SetPerceptionComponent(*AIPerceptionComponent);
 
-	// Comportement et blackboard
-	BlackboardComp = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComponent"));
-	BehaviorComp = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorComponent"));
+	// Paramètres de vision
+	SightConfig->SightRadius = 2000.0f;
+	SightConfig->LoseSightRadius = 2500.0f;
+	SightConfig->PeripheralVisionAngleDegrees = 90.0f;
+	SightConfig->SetMaxAge(5.0f);
 
-	// Config vue
-	SightConfig->SightRadius = 3000.f;
-	SightConfig->LoseSightRadius = 3500.f;
-	SightConfig->PeripheralVisionAngleDegrees = 90.f;
-	SightConfig->SetMaxAge(5.f);
 	SightConfig->DetectionByAffiliation.bDetectEnemies = true;
 	SightConfig->DetectionByAffiliation.bDetectFriendlies = true;
 	SightConfig->DetectionByAffiliation.bDetectNeutrals = true;
 
 	AIPerceptionComponent->ConfigureSense(*SightConfig);
 	AIPerceptionComponent->SetDominantSense(SightConfig->GetSenseImplementation());
+
+	// Components Behavior Tree
+	BlackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComponent"));
+	BehaviorTreeComponent = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorTreeComponent"));
 }
 
 void AAIControllerShooter::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// 🔹 Attache l’événement de perception
 	AIPerceptionComponent->OnTargetPerceptionUpdated.AddDynamic(this, &AAIControllerShooter::OnTargetPerceptionUpdated);
 
-	if (BehaviorTreeComponent)
+	// 🔹 Récupère le Pawn contrôlé
+	APawn* ControlledPawn = GetPawn();
+	if (!ControlledPawn) return;
+
+	AAIShooterCharacter* AICharacter = Cast<AAIShooterCharacter>(ControlledPawn);
+	if (AICharacter && AICharacter->BehaviorTree)
 	{
-		RunBehaviorTree(BehaviorTreeComponent);
+		// Initialise Blackboard et Behavior Tree
+		UseBlackboard(AICharacter->BehaviorTree->BlackboardAsset, BlackboardComponent);
+		RunBehaviorTree(AICharacter->BehaviorTree);
 	}
 }
 
-void AAIControllerShooter::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus const Stimulus)
+void AAIControllerShooter::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus)
 {
-	// Check actor is a TP3ShootCharacter
-	AAIShooterCharacter* ShootCharacter = Cast<AAIShooterCharacter>(Actor);
-	// Get the team id of the AI character
+	if (!Actor) return; // vérifie juste que l'acteur existe
 
-	
-	//int TeamId = Cast<AAIShooterCharacter>(GetPawn())->TeamId;
-	//if (!ShootCharacter || ShootCharacter->TeamId == TeamId) return;
+	// Optionnel : vérifier que ce n’est pas l’IA elle-même
+	if (Actor == GetPawn()) return;
 
-	
-	// check if stimulus is sight
+	// Vision (vue)
 	if (Stimulus.Type == UAISense::GetSenseID<UAISense_Sight>())
 	{
-		// if stimulus is sight, check if stimulus is sensed
 		if (Stimulus.WasSuccessfullySensed())
 		{
-			// Set can see player to true
+			UE_LOG(LogTemp, Warning, TEXT("IA voit le joueur !"));
 			BlackboardComponent->SetValueAsBool("CanSeePlayer", true);
-			// Set target actor
 			BlackboardComponent->SetValueAsObject("Target", Actor);
 		}
 		else
 		{
+			UE_LOG(LogTemp, Warning, TEXT("IA ne voit plus le joueur."));
 			BlackboardComponent->SetValueAsBool("CanSeePlayer", false);
 			BlackboardComponent->SetValueAsObject("Target", nullptr);
 		}

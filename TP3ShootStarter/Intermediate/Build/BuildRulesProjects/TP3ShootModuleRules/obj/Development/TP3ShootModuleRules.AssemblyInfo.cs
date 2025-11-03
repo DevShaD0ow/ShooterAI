@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TP3ShootModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f1b25b8010ef73cac6465a7f8f7dfa7069d1734")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d6eb42666124ff5a90e690ee56c9f1a32c02320")]
 [assembly: System.Reflection.AssemblyProductAttribute("TP3ShootModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TP3ShootModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -10,6 +10,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "Kismet/GameplayStatics.h"
+#include "Perception/AISense_Hearing.h"
+#include "Perception/AISense_Sight.h"
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -59,6 +61,15 @@ ATP3ShootCharacter::ATP3ShootCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
+
+	StimuliSource = CreateDefaultSubobject<UAIPerceptionStimuliSourceComponent>(TEXT("StimuliSource"));
+
+	// Enregistrer le joueur pour le sens Sight et Hearing
+	StimuliSource->RegisterForSense(UAISense_Sight::StaticClass());
+	StimuliSource->RegisterForSense(UAISense_Hearing::StaticClass());
+
+	// Enregistrer dans le système de perception d'Unreal
+	StimuliSource->RegisterWithPerceptionSystem();
 }
 
 //////////////////////////////////////////////////////////////////////////

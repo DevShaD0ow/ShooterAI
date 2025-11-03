@@ -20,15 +20,22 @@ public:
 
 	virtual void BeginPlay() override;
 
-	// Callback perception
+	// Callback de perception
 	UFUNCTION()
 	void OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
 
 protected:
-	// Composants du Behavior Tree et Blackboard
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	// Composants de perception et configuration
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AI")
+	UAIPerceptionComponent* AIPerceptionComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AI")
+	UAISenseConfig_Sight* SightConfig;
+
+	// Composants de Behavior Tree
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AI")
 	UBlackboardComponent* BlackboardComponent;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AI")
 	UBehaviorTreeComponent* BehaviorTreeComponent;
 };

@@ -19,7 +19,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 // ********** Begin Class AAIShooterCharacter ******************************************************
 TP3SHOOT_API UClass* Z_Construct_UClass_AAIShooterCharacter_NoRegister();
 
-#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h_11_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAAIShooterCharacter(); \
 	friend struct Z_Construct_UClass_AAIShooterCharacter_Statics; \
@@ -30,9 +30,7 @@ public: \
 	DECLARE_SERIALIZER(AAIShooterCharacter)
 
 
-#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AAIShooterCharacter(); \
+#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h_11_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AAIShooterCharacter(AAIShooterCharacter&&) = delete; \
 	AAIShooterCharacter(const AAIShooterCharacter&) = delete; \
@@ -42,12 +40,12 @@ public: \
 	NO_API virtual ~AAIShooterCharacter();
 
 
-#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h_12_PROLOG
-#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h_15_GENERATED_BODY \
+#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h_8_PROLOG
+#define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h_11_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h_15_INCLASS_NO_PURE_DECLS \
-	FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h_15_ENHANCED_CONSTRUCTORS \
+	FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h_11_INCLASS_NO_PURE_DECLS \
+	FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h_11_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
