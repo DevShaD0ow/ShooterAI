@@ -11,7 +11,6 @@
     <None Include="..\..\Source\TP3ShootEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
-    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -69,6 +68,9 @@
     <ClCompile Include="..\..\Source\TP3Shoot\Private\AIShooterCharacter.cpp">
       <Filter>Source\TP3Shoot\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\TP3Shoot\Private\BTTask_Shoot.cpp">
+      <Filter>Source\TP3Shoot\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\TP3Shoot\Public">
       <UniqueIdentifier>{86569A12-3FE2-3366-B16E-2DA1BA2933A5}</UniqueIdentifier>
     </Filter>
@@ -76,6 +78,9 @@
       <Filter>Source\TP3Shoot\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\TP3Shoot\Public\AIShooterCharacter.h">
+      <Filter>Source\TP3Shoot\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TP3Shoot\Public\BTTask_Shoot.h">
       <Filter>Source\TP3Shoot\Public</Filter>
     </ClInclude>
   </ItemGroup>

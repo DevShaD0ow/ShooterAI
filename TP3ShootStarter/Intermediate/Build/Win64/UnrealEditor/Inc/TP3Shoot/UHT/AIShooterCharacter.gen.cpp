@@ -112,6 +112,7 @@ UClass* Z_Construct_UClass_AAIShooterCharacter()
 	}
 	return Z_Registration_Info_UClass_AAIShooterCharacter.OuterSingleton;
 }
+AAIShooterCharacter::AAIShooterCharacter() {}
 DEFINE_VTABLE_PTR_HELPER_CTOR(AAIShooterCharacter);
 AAIShooterCharacter::~AAIShooterCharacter() {}
 // ********** End Class AAIShooterCharacter ********************************************************
@@ -120,10 +121,10 @@ AAIShooterCharacter::~AAIShooterCharacter() {}
 struct Z_CompiledInDeferFile_FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h__Script_TP3Shoot_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AAIShooterCharacter, AAIShooterCharacter::StaticClass, TEXT("AAIShooterCharacter"), &Z_Registration_Info_UClass_AAIShooterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAIShooterCharacter), 2946664982U) },
+		{ Z_Construct_UClass_AAIShooterCharacter, AAIShooterCharacter::StaticClass, TEXT("AAIShooterCharacter"), &Z_Registration_Info_UClass_AAIShooterCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAIShooterCharacter), 105861367U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h__Script_TP3Shoot_2199877461(TEXT("/Script/TP3Shoot"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h__Script_TP3Shoot_1488889817(TEXT("/Script/TP3Shoot"),
 	Z_CompiledInDeferFile_FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h__Script_TP3Shoot_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h__Script_TP3Shoot_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

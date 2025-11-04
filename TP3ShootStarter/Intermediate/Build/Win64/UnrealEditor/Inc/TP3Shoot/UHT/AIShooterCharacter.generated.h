@@ -31,6 +31,8 @@ public: \
 
 
 #define FID_unrealP_ShooterAI_TP3ShootStarter_Source_TP3Shoot_Public_AIShooterCharacter_h_11_ENHANCED_CONSTRUCTORS \
+	/** Standard constructor, called after all reflected properties have been initialized */ \
+	NO_API AAIShooterCharacter(); \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AAIShooterCharacter(AAIShooterCharacter&&) = delete; \
 	AAIShooterCharacter(const AAIShooterCharacter&) = delete; \

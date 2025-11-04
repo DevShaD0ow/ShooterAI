@@ -1,6 +1,8 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "TP3ShootCharacter.h"
+
+#include "AIControllerShooter.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
@@ -131,29 +133,69 @@ void ATP3ShootCharacter::StopAiming()
 
 void ATP3ShootCharacter::Fire()
 {
-	FVector Start, LineTraceEnd, ForwardVector;
+    if (IsFiring) return; // évite le spam
+    IsFiring = true;
 
-	if (IsAiming)
-	{
+    // Animation
+    if (FireAnimation)
+    {
+        PlayAnimMontage(FireAnimation);
+    }
 
-		Start = FollowCamera->GetComponentLocation();
+    // Son
+    if (FireSound)
+    {
+        UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+    }
+	StopAnimMontage(FireAnimation);
+    // Flash du canon
+    if (MuzzleFlash)
+    {
+        UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, SK_Gun, TEXT("MuzzleFlash"));
+    }
 
-		ForwardVector = FollowCamera->GetForwardVector();
+    // Calcul du tir
+    FVector Start;
+    FVector End;
+    FHitResult HitResult;
 
-		LineTraceEnd = Start + (ForwardVector * 10000);
-	}
-	else {
+    FVector CameraLocation = FollowCamera->GetComponentLocation();
+    FVector CameraForward = FollowCamera->GetForwardVector();
+    Start = CameraLocation;
+    End = Start + (CameraForward * WeaponRange);
 
-		// Get muzzle location
-		Start = SK_Gun->GetSocketLocation("MuzzleFlash");
+    // Trace de tir (raycast)
+    FCollisionQueryParams TraceParams;
+    TraceParams.AddIgnoredActor(this);
 
-		// Get Rotation Forward Vector
-		ForwardVector = FollowCamera->GetForwardVector();
+    if (GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, TraceParams))
+    {
+        FVector ImpactPoint = HitResult.ImpactPoint;
 
-		// Get End Point
-		LineTraceEnd = Start + (ForwardVector * 10000);
-	}
+        // Particules d’impact
+        FireParticle(Start, ImpactPoint);
+
+        // Dégâts si un acteur est touché
+        AActor* HitActor = HitResult.GetActor();
+        if (HitActor)
+        {
+            UGameplayStatics::ApplyDamage(HitActor, Damage, GetController(), this, nullptr);
+        }
+    }
+    else
+    {
+        // Pas d’impact : juste tirer droit
+        FVector EndNoHit = Start + (CameraForward * WeaponRange);
+        FireParticle(Start, EndNoHit);
+    }
+
+    // Cadence de tir
+    GetWorldTimerManager().SetTimer(FireTimer, [&]()
+        {
+            IsFiring = false;
+        }, FireRate, false);
 }
+
 
 
 
@@ -239,3 +281,29 @@ void ATP3ShootCharacter::MoveRight(float Value)
 		AddMovementInput(Direction, Value);
 	}
 }
+
+
+float ATP3ShootCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+{
+	float ActualDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+
+	if (ActualDamage > 0.0f)
+	{
+		Life -= FMath::RoundToInt(ActualDamage);
+        
+		UE_LOG(LogTemp, Warning, TEXT("%s a subi %.2f dégâts. Vie restante : %d"), 
+			*GetName(), ActualDamage, Life);
+
+		AAIControllerShooter* AIController = Cast<AAIControllerShooter>(GetController());
+        
+		//if (AIController && DamageCauser)AIController->ReactToDamage(DamageCauser, EventInstigator);
+		if (Life <= 0)
+		{
+			// TODO: Implémenter la logique de mort (détruire l'acteur, animation de mort, etc.)
+			// Destroy(); 
+		}
+	}
+
+	return ActualDamage;
+}
+

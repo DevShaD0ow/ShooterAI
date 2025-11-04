@@ -23,6 +23,7 @@ public:
 	// Callback de perception
 	UFUNCTION()
 	void OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
+	void ForgetPlayer();
 
 protected:
 	// Composants de perception et configuration
@@ -32,6 +33,8 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AI")
 	UAISenseConfig_Sight* SightConfig;
 
+	FTimerHandle LostSightTimer;
+	
 	// Composants de Behavior Tree
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="AI")
 	UBlackboardComponent* BlackboardComponent;

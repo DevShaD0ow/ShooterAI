@@ -3,73 +3,88 @@
 #include "BehaviorTree/BlackboardData.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "AIShooterCharacter.h"
+#include "TimerManager.h"
 
 AAIControllerShooter::AAIControllerShooter()
 {
-	// Composants de perception
-	AIPerceptionComponent = CreateDefaultSubobject<UAIPerceptionComponent>(TEXT("AIPerceptionComponent"));
-	SightConfig = CreateDefaultSubobject<UAISenseConfig_Sight>(TEXT("SightConfig"));
-	SetPerceptionComponent(*AIPerceptionComponent);
+    AIPerceptionComponent = CreateDefaultSubobject<UAIPerceptionComponent>(TEXT("AIPerceptionComponent"));
+    SightConfig = CreateDefaultSubobject<UAISenseConfig_Sight>(TEXT("SightConfig"));
+    SetPerceptionComponent(*AIPerceptionComponent);
 
-	// Paramètres de vision
-	SightConfig->SightRadius = 2000.0f;
-	SightConfig->LoseSightRadius = 2500.0f;
-	SightConfig->PeripheralVisionAngleDegrees = 90.0f;
-	SightConfig->SetMaxAge(5.0f);
+    SightConfig->SightRadius = 2000.0f;
+    SightConfig->LoseSightRadius = 2500.0f;
+    SightConfig->PeripheralVisionAngleDegrees = 90.0f;
+    SightConfig->SetMaxAge(5.0f); 
 
-	SightConfig->DetectionByAffiliation.bDetectEnemies = true;
-	SightConfig->DetectionByAffiliation.bDetectFriendlies = true;
-	SightConfig->DetectionByAffiliation.bDetectNeutrals = true;
+    SightConfig->DetectionByAffiliation.bDetectEnemies = true;
+    SightConfig->DetectionByAffiliation.bDetectFriendlies = true;
+    SightConfig->DetectionByAffiliation.bDetectNeutrals = true;
 
-	AIPerceptionComponent->ConfigureSense(*SightConfig);
-	AIPerceptionComponent->SetDominantSense(SightConfig->GetSenseImplementation());
+    AIPerceptionComponent->ConfigureSense(*SightConfig);
+    AIPerceptionComponent->SetDominantSense(SightConfig->GetSenseImplementation());
 
-	// Components Behavior Tree
-	BlackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComponent"));
-	BehaviorTreeComponent = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorTreeComponent"));
+    BlackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComponent"));
+    BehaviorTreeComponent = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorTreeComponent"));
 }
 
 void AAIControllerShooter::BeginPlay()
 {
-	Super::BeginPlay();
+    Super::BeginPlay();
 
-	// 🔹 Attache l’événement de perception
-	AIPerceptionComponent->OnTargetPerceptionUpdated.AddDynamic(this, &AAIControllerShooter::OnTargetPerceptionUpdated);
+    if (AIPerceptionComponent)AIPerceptionComponent->OnTargetPerceptionUpdated.AddDynamic(this, &AAIControllerShooter::OnTargetPerceptionUpdated);
+    
+    APawn* ControlledPawn = GetPawn();
+    if (!ControlledPawn) return;
 
-	// 🔹 Récupère le Pawn contrôlé
-	APawn* ControlledPawn = GetPawn();
-	if (!ControlledPawn) return;
-
-	AAIShooterCharacter* AICharacter = Cast<AAIShooterCharacter>(ControlledPawn);
-	if (AICharacter && AICharacter->BehaviorTree)
-	{
-		// Initialise Blackboard et Behavior Tree
-		UseBlackboard(AICharacter->BehaviorTree->BlackboardAsset, BlackboardComponent);
-		RunBehaviorTree(AICharacter->BehaviorTree);
-	}
+    AAIShooterCharacter* AICharacter = Cast<AAIShooterCharacter>(ControlledPawn);
+    if (AICharacter && AICharacter->BehaviorTree)
+    {
+        UseBlackboard(AICharacter->BehaviorTree->BlackboardAsset, BlackboardComponent);
+        RunBehaviorTree(AICharacter->BehaviorTree);
+    }
 }
 
 void AAIControllerShooter::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus)
 {
-	if (!Actor) return; // vérifie juste que l'acteur existe
+    if (!Actor) return;
+    if (Actor == GetPawn()) return;
 
-	// Optionnel : vérifier que ce n’est pas l’IA elle-même
-	if (Actor == GetPawn()) return;
+    if (Stimulus.Type == UAISense::GetSenseID<UAISense_Sight>())
+    {
+        if (Stimulus.WasSuccessfullySensed())
+        {
+            UE_LOG(LogTemp, Warning, TEXT("IA voit le joueur !"));
+            
+            BlackboardComponent->SetValueAsBool("CanSeePlayer", true);
+            BlackboardComponent->SetValueAsObject("PlayerTargetActor", Actor); 
+            BlackboardComponent->SetValueAsVector("LastKnownPlayerLocation", Actor->GetActorLocation()); 
 
-	// Vision (vue)
-	if (Stimulus.Type == UAISense::GetSenseID<UAISense_Sight>())
-	{
-		if (Stimulus.WasSuccessfullySensed())
-		{
-			UE_LOG(LogTemp, Warning, TEXT("IA voit le joueur !"));
-			BlackboardComponent->SetValueAsBool("CanSeePlayer", true);
-			BlackboardComponent->SetValueAsObject("Target", Actor);
-		}
-		else
-		{
-			UE_LOG(LogTemp, Warning, TEXT("IA ne voit plus le joueur."));
-			BlackboardComponent->SetValueAsBool("CanSeePlayer", false);
-			BlackboardComponent->SetValueAsObject("Target", nullptr);
-		}
-	}
+            GetWorld()->GetTimerManager().ClearTimer(LostSightTimer);
+        }
+        else 
+        {
+            UE_LOG(LogTemp, Warning, TEXT("IA ne voit plus le joueur physiquement, début du timer de suivi de 6 secondes."));
+
+            BlackboardComponent->SetValueAsVector("LastKnownPlayerLocation", Actor->GetActorLocation()); 
+            BlackboardComponent->ClearValue("CanSeePlayer"); 
+
+            GetWorld()->GetTimerManager().SetTimer(
+                LostSightTimer, 
+                this, 
+                &AAIControllerShooter::ForgetPlayer, 
+                6.0f, 
+                false
+            );
+        }
+    }
+}
+
+void AAIControllerShooter::ForgetPlayer()
+{
+    UE_LOG(LogTemp, Warning, TEXT("IA oublie le joueur après 6 secondes sans le voir."));
+    BlackboardComponent->ClearValue("PlayerTargetActor");
+    BlackboardComponent->ClearValue("TargetLocationPlayer");
+    
+    // S'assurer que CanSeePlayer est bien FALSE ou Clear pour le mode Exploration
+    BlackboardComponent->ClearValue("CanSeePlayer");
 }

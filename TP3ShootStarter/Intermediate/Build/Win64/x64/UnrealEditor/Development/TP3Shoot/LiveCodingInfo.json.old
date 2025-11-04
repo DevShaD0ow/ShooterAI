@@ -2,11 +2,11 @@
 	"RemapUnityFiles": 
 	{
 		"Module.TP3Shoot.gen.cpp.obj": [
-			"TP3ShootCharacter.gen.cpp.obj",
 			"TP3ShootGameMode.gen.cpp.obj",
 			"AIControllerShooter.gen.cpp.obj",
 			"AIShooterCharacter.gen.cpp.obj",
-			"TP3Shoot.init.gen.cpp.obj"
+			"TP3Shoot.init.gen.cpp.obj",
+			"TP3ShootCharacter.gen.cpp.obj"
 		]
 	}
 }

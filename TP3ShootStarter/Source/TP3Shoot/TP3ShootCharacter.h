@@ -26,8 +26,42 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Input)
 	float TurnRateGamepad;
 
-protected:
+	float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+	
+	// =======================
+    // Tir / M4A1
+    // =======================
+    
+    // Dégâts infligés par un tir
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
+    float Damage = 25.0f;
 
+    // Distance maximale du tir
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
+    float WeaponRange = 10000.0f;
+    
+    // Temps entre deux tirs (fire rate)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
+    float FireRate = 0.1f; // 10 tirs par seconde
+    
+    // Timer pour le tir automatique
+    FTimerHandle FireTimer;
+    
+    // Son du tir
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
+    USoundBase* FireSound;
+    
+    // Effet de flash du canon
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
+    UParticleSystem* MuzzleFlash;
+
+	// Firing function
+	void Fire();
+
+protected:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Life")
+	int Life=100;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AI")
 	UAIPerceptionStimuliSourceComponent* StimuliSource;
 	
@@ -78,9 +112,7 @@ protected:
 	void Aim();
 
 	void StopAiming();
-
-	// Firing function
-	void Fire();
+	
 
 	void BoostSpeed();
 
