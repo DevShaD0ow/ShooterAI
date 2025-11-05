@@ -1,8 +1,0 @@
-{
-	"SourceFiles": [
-		"C:\\perso\\unrealP\\ShooterAI\\TP3ShootStarter\\Source\\TP3Shoot\\TP3Shoot.Build.cs",
-		"C:\\perso\\unrealP\\ShooterAI\\TP3ShootStarter\\Source\\TP3Shoot.Target.cs",
-		"C:\\perso\\unrealP\\ShooterAI\\TP3ShootStarter\\Source\\TP3ShootEditor.Target.cs"
-	],
-	"EngineVersion": "5.6.1"
-}
