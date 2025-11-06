@@ -24,6 +24,7 @@ public:
 	UFUNCTION()
 	void OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus Stimulus);
 	void ForgetPlayer();
+	void ReactToThreat(AActor* Attacker);
 
 protected:
 	// Composants de perception et configuration

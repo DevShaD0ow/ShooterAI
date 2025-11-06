@@ -53,38 +53,35 @@ void AAIControllerShooter::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus 
     {
         if (Stimulus.WasSuccessfullySensed())
         {
-            UE_LOG(LogTemp, Warning, TEXT("IA voit le joueur !"));
+            SetFocus(Actor);
             
             BlackboardComponent->SetValueAsBool("CanSeePlayer", true);
             BlackboardComponent->SetValueAsObject("PlayerTargetActor", Actor); 
             BlackboardComponent->SetValueAsVector("LastKnownPlayerLocation", Actor->GetActorLocation()); 
-
             GetWorld()->GetTimerManager().ClearTimer(LostSightTimer);
         }
         else 
         {
-            UE_LOG(LogTemp, Warning, TEXT("IA ne voit plus le joueur physiquement, début du timer de suivi de 6 secondes."));
-
-            BlackboardComponent->SetValueAsVector("LastKnownPlayerLocation", Actor->GetActorLocation()); 
-            BlackboardComponent->ClearValue("CanSeePlayer"); 
-
-            GetWorld()->GetTimerManager().SetTimer(
-                LostSightTimer, 
-                this, 
-                &AAIControllerShooter::ForgetPlayer, 
-                6.0f, 
-                false
-            );
+            BlackboardComponent->ClearValue("CanSeePlayer");
+            if (!GetWorld()->GetTimerManager().IsTimerActive(LostSightTimer))
+            {
+                GetWorld()->GetTimerManager().SetTimer(
+                    LostSightTimer, 
+                    this, 
+                    &AAIControllerShooter::ForgetPlayer, 
+                    6.0f, 
+                    false
+                );
+            }
         }
     }
 }
 
 void AAIControllerShooter::ForgetPlayer()
 {
-    UE_LOG(LogTemp, Warning, TEXT("IA oublie le joueur après 6 secondes sans le voir."));
-    BlackboardComponent->ClearValue("PlayerTargetActor");
-    BlackboardComponent->ClearValue("TargetLocationPlayer");
+    ClearFocus(EAIFocusPriority::Gameplay);
     
-    // S'assurer que CanSeePlayer est bien FALSE ou Clear pour le mode Exploration
+    BlackboardComponent->ClearValue("PlayerTargetActor");
+    BlackboardComponent->ClearValue("LastKnownPlayerLocation");
     BlackboardComponent->ClearValue("CanSeePlayer");
 }

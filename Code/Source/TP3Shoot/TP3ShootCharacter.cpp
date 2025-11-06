@@ -19,60 +19,60 @@
 //////////////////////////////////////////////////////////////////////////
 // ATP3ShootCharacter
 
-ATP3ShootCharacter::ATP3ShootCharacter()
-{
-	// Set size for collision capsule
-	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
+	ATP3ShootCharacter::ATP3ShootCharacter()
+	{
+		// Set size for collision capsule
+		GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
-	// set our turn rate for input
-	TurnRateGamepad = 50.f;
+		// set our turn rate for input
+		TurnRateGamepad = 50.f;
 
-	// Don't rotate when the controller rotates. Let that just affect the camera.
-	bUseControllerRotationPitch = false;
-	bUseControllerRotationYaw = false;
-	bUseControllerRotationRoll = false;
+		// Don't rotate when the controller rotates. Let that just affect the camera.
+		bUseControllerRotationPitch = false;
+		bUseControllerRotationYaw = false;
+		bUseControllerRotationRoll = false;
 
-	// Configure character movement
-	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
-	GetCharacterMovement()->RotationRate = FRotator(0.0f, 500.0f, 0.0f); // ...at this rotation rate
+		// Configure character movement
+		GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
+		GetCharacterMovement()->RotationRate = FRotator(0.0f, 500.0f, 0.0f); // ...at this rotation rate
 
-	// Note: For faster iteration times these variables, and many more, can be tweaked in the Character Blueprint
-	// instead of recompiling to adjust them
-	GetCharacterMovement()->JumpZVelocity = 700.f;
-	GetCharacterMovement()->AirControl = 0.35f;
-	GetCharacterMovement()->MaxWalkSpeed = 500.f;
-	GetCharacterMovement()->MinAnalogWalkSpeed = 20.f;
-	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
+		// Note: For faster iteration times these variables, and many more, can be tweaked in the Character Blueprint
+		// instead of recompiling to adjust them
+		GetCharacterMovement()->JumpZVelocity = 700.f;
+		GetCharacterMovement()->AirControl = 0.35f;
+		GetCharacterMovement()->MaxWalkSpeed = 500.f;
+		GetCharacterMovement()->MinAnalogWalkSpeed = 20.f;
+		GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 
-	// Create a camera boom (pulls in towards the player if there is a collision)
-	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
-	CameraBoom->SetupAttachment(RootComponent);
-	CameraBoom->TargetArmLength = 400.0f; // The camera follows at this distance behind the character	
-	CameraBoom->bUsePawnControlRotation = true; // Rotate the arm based on the controller
+		// Create a camera boom (pulls in towards the player if there is a collision)
+		CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
+		CameraBoom->SetupAttachment(RootComponent);
+		CameraBoom->TargetArmLength = 400.0f; // The camera follows at this distance behind the character	
+		CameraBoom->bUsePawnControlRotation = true; // Rotate the arm based on the controller
 
-	// Create a follow camera
-	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
-	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
-	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
+		// Create a follow camera
+		FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
+		FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
+		FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
-	// Create SK_Gun
-	SK_Gun = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Gun"));
-	SK_Gun->SetupAttachment(GetMesh());
-	// Set parent socket
-	SK_Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("GripPoint"));
+		// Create SK_Gun
+		SK_Gun = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Gun"));
+		SK_Gun->SetupAttachment(GetMesh());
+		// Set parent socket
+		SK_Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("GripPoint"));
 
-	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
-	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
+		// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
+		// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
 
-	StimuliSource = CreateDefaultSubobject<UAIPerceptionStimuliSourceComponent>(TEXT("StimuliSource"));
+		StimuliSource = CreateDefaultSubobject<UAIPerceptionStimuliSourceComponent>(TEXT("StimuliSource"));
 
-	// Enregistrer le joueur pour le sens Sight et Hearing
-	StimuliSource->RegisterForSense(UAISense_Sight::StaticClass());
-	StimuliSource->RegisterForSense(UAISense_Hearing::StaticClass());
+		// Enregistrer le joueur pour le sens Sight et Hearing
+		StimuliSource->RegisterForSense(UAISense_Sight::StaticClass());
+		StimuliSource->RegisterForSense(UAISense_Hearing::StaticClass());
 
-	// Enregistrer dans le système de perception d'Unreal
-	StimuliSource->RegisterWithPerceptionSystem();
-}
+		// Enregistrer dans le système de perception d'Unreal
+		StimuliSource->RegisterWithPerceptionSystem();
+	}
 
 //////////////////////////////////////////////////////////////////////////
 // Input
@@ -131,73 +131,167 @@ void ATP3ShootCharacter::StopAiming()
 	IsAiming = false;
 }
 
+// N'oubliez pas d'inclure #include "DrawDebugHelpers.h" en tête de votre fichier .cpp !
+
 void ATP3ShootCharacter::Fire()
-{
-    if (IsFiring) return; // évite le spam
-    IsFiring = true;
 
-    // Animation
-    if (FireAnimation)
-    {
-        PlayAnimMontage(FireAnimation);
-    }
+	{
 
-    // Son
-    if (FireSound)
-    {
-        UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-    }
-	StopAnimMontage(FireAnimation);
-    // Flash du canon
-    if (MuzzleFlash)
-    {
-        UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, SK_Gun, TEXT("MuzzleFlash"));
-    }
+		if (IsFiring) return;
 
-    // Calcul du tir
-    FVector Start;
-    FVector End;
-    FHitResult HitResult;
-
-    FVector CameraLocation = FollowCamera->GetComponentLocation();
-    FVector CameraForward = FollowCamera->GetForwardVector();
-    Start = CameraLocation;
-    End = Start + (CameraForward * WeaponRange);
-
-    // Trace de tir (raycast)
-    FCollisionQueryParams TraceParams;
-    TraceParams.AddIgnoredActor(this);
-
-    if (GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, TraceParams))
-    {
-        FVector ImpactPoint = HitResult.ImpactPoint;
-
-        // Particules d’impact
-        FireParticle(Start, ImpactPoint);
-
-        // Dégâts si un acteur est touché
-        AActor* HitActor = HitResult.GetActor();
-        if (HitActor)
-        {
-            UGameplayStatics::ApplyDamage(HitActor, Damage, GetController(), this, nullptr);
-        }
-    }
-    else
-    {
-        // Pas d’impact : juste tirer droit
-        FVector EndNoHit = Start + (CameraForward * WeaponRange);
-        FireParticle(Start, EndNoHit);
-    }
-
-    // Cadence de tir
-    GetWorldTimerManager().SetTimer(FireTimer, [&]()
-        {
-            IsFiring = false;
-        }, FireRate, false);
-}
+		IsFiring = true;
 
 
 
+		// ... (Animations, Sons, Flash du canon) ...
+
+
+
+		// CALCUL DU POINT DE DÉPART ET DE LA DIRECTION DE TIR (IA vs JOUEUR)
+
+		FVector Start;
+
+		FVector ForwardVector;
+
+		FHitResult HitResult;
+
+
+		// ... (Logique pour déterminer Start et ForwardVector inchangée) ...
+
+		if (IsPlayerControlled())
+
+		{
+
+			Start = FollowCamera->GetComponentLocation();
+
+			ForwardVector = FollowCamera->GetForwardVector();
+
+		}
+
+		else // Contrôlé par l'IA
+
+		{
+
+			FName MuzzleSocketName = TEXT("MuzzleFlash");
+
+			if (SK_Gun && SK_Gun->DoesSocketExist(MuzzleSocketName))
+
+			{
+
+				Start = SK_Gun->GetSocketLocation(MuzzleSocketName);
+
+			}
+
+			else
+
+			{
+
+				Start = GetMesh()->GetSocketLocation(TEXT("GripPoint"));
+
+			}
+
+
+
+			if (Controller)
+
+			{
+
+				ForwardVector = Controller->GetControlRotation().Vector();
+
+			}
+
+			else
+
+			{
+
+				ForwardVector = GetActorForwardVector();
+
+			}
+
+		}
+
+
+
+		FVector End = Start + (ForwardVector * WeaponRange);
+
+
+		// TRACÉ DE RAYON STANDARD + DEBUG VISUEL
+
+		FCollisionQueryParams TraceParams;
+
+		TraceParams.AddIgnoredActor(this);
+
+
+		if (!IsPlayerControlled() && SK_Gun)
+
+		{
+
+			TraceParams.AddIgnoredActor(SK_Gun->GetOwner());
+
+		}
+
+		if (GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, TraceParams))
+
+		{
+
+			FVector ImpactPoint = HitResult.ImpactPoint;
+
+			FireParticle(Start, ImpactPoint);
+
+
+
+			AActor* HitActor = HitResult.GetActor();
+
+			if (HitActor)
+
+			{
+
+				UGameplayStatics::ApplyDamage(HitActor, Damage, GetController(), this, nullptr);
+
+			}
+
+
+			// 2. Dessine la ligne VERTE (touche l'ImpactPoint)
+
+#if ENABLE_DRAW_DEBUG
+
+			DrawDebugLine(GetWorld(), Start, ImpactPoint, FColor::Green, false, 3.0f, 0, 2.0f);
+
+#endif
+
+		}
+
+		else
+
+		{
+
+			// 1. Particules (si ça rate)
+
+			FVector EndNoHit = Start + (ForwardVector * WeaponRange);
+
+			FireParticle(Start, EndNoHit);
+
+
+
+#if ENABLE_DRAW_DEBUG
+
+			DrawDebugLine(GetWorld(), Start, EndNoHit, FColor::Red, false, 3.0f, 0, 2.0f);
+
+#endif
+
+		}
+
+		// Cadence de tir
+
+		GetWorldTimerManager().SetTimer(FireTimer, [&]()
+
+		{
+
+		IsFiring = false;
+
+		}, FireRate, false);
+
+	}
 
 void ATP3ShootCharacter::BoostSpeed()
 {
@@ -295,8 +389,11 @@ float ATP3ShootCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Dam
 			*GetName(), ActualDamage, Life);
 
 		AAIControllerShooter* AIController = Cast<AAIControllerShooter>(GetController());
-        
-		//if (AIController && DamageCauser)AIController->ReactToDamage(DamageCauser, EventInstigator);
+		if (AIController && DamageCauser && EventInstigator)
+		{
+			// L'IA réagit à l'attaque. L'attaquant est l'acteur physique qui a causé les dégâts.
+			AIController->ReactToThreat(DamageCauser); 
+		}
 		if (Life <= 0)
 		{
 			// TODO: Implémenter la logique de mort (détruire l'acteur, animation de mort, etc.)
@@ -307,3 +404,24 @@ float ATP3ShootCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Dam
 	return ActualDamage;
 }
 
+void AAIControllerShooter::ReactToThreat(AActor* Attacker)
+	{
+		if (!BlackboardComponent || !Attacker) return;
+
+		// 1. Définir le Foyer (Focus) sur l'attaquant
+		SetFocus(Attacker);
+    
+		// 2. Mettre à jour le Blackboard pour forcer l'état de Combat/Poursuite
+		BlackboardComponent->SetValueAsBool("CanSeePlayer", true); // Force l'état d'agression/combat
+		BlackboardComponent->SetValueAsObject("PlayerTargetActor", Attacker);
+		BlackboardComponent->SetValueAsVector("LastKnownPlayerLocation", Attacker->GetActorLocation());
+    
+		// 3. (OPTIONNEL) Définir une variable de Blackboard pour indiquer qu'elle a été attaquée
+		//    Si vous avez une clé nommée "WasAttacked", définissez-la à true ici.
+		// BlackboardComponent->SetValueAsBool("WasAttacked", true);
+    
+		// 4. Annuler le timer si l'IA était en phase d'oubli
+		GetWorld()->GetTimerManager().ClearTimer(LostSightTimer);
+    
+		UE_LOG(LogTemp, Warning, TEXT("IA %s attaquée par %s. Entrée en mode Menace/Riposte!"), *GetName(), *Attacker->GetName());
+	}
