@@ -34,7 +34,7 @@ public:
     
     // Dégâts infligés par un tir
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
-    float Damage = 25.0f;
+    float Damage = 5.0f;
 
     // Distance maximale du tir
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
