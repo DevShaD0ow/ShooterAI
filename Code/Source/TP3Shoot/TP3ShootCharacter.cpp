@@ -378,50 +378,55 @@ void ATP3ShootCharacter::MoveRight(float Value)
 
 
 float ATP3ShootCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
-{
-	float ActualDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
-
-	if (ActualDamage > 0.0f)
 	{
-		Life -= FMath::RoundToInt(ActualDamage);
+		float ActualDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+
+		if (ActualDamage > 0.0f)
+		{
+			Life -= FMath::RoundToInt(ActualDamage);
         
-		UE_LOG(LogTemp, Warning, TEXT("%s a subi %.2f dégâts. Vie restante : %d"), 
-			*GetName(), ActualDamage, Life);
+			UE_LOG(LogTemp, Warning, TEXT("%s a subi %.2f dégâts. Vie restante : %d"), 
+				*GetName(), ActualDamage, Life);
 
-		AAIControllerShooter* AIController = Cast<AAIControllerShooter>(GetController());
-		if (AIController && DamageCauser && EventInstigator)
-		{
-			// L'IA réagit à l'attaque. L'attaquant est l'acteur physique qui a causé les dégâts.
-			AIController->ReactToThreat(DamageCauser); 
+			AAIControllerShooter* AIController = Cast<AAIControllerShooter>(GetController());
+        
+			if (AIController && DamageCauser && EventInstigator)
+			{
+				if (UBlackboardComponent* BlackboardComp = AIController->GetBlackboardComponent())
+				{
+					bool bIsPlayerVisible = BlackboardComp->GetValueAsBool(TEXT("CanSeePlayer"));
+
+					if (!bIsPlayerVisible)
+					{
+						AIController->ReactToThreat(DamageCauser); 
+					}
+				}
+				else
+				{
+					AIController->ReactToThreat(DamageCauser);
+				}
+			}
+        
+			if (Life <= 0)
+			{
+				// Destruction ou logique de mort ici
+			}
 		}
-		if (Life <= 0)
-		{
-			// TODO: Implémenter la logique de mort (détruire l'acteur, animation de mort, etc.)
-			// Destroy(); 
-		}
+
+		return ActualDamage;
 	}
-
-	return ActualDamage;
-}
 
 void AAIControllerShooter::ReactToThreat(AActor* Attacker)
 	{
 		if (!BlackboardComponent || !Attacker) return;
 
-		// 1. Définir le Foyer (Focus) sur l'attaquant
 		SetFocus(Attacker);
-    
-		// 2. Mettre à jour le Blackboard pour forcer l'état de Combat/Poursuite
-		BlackboardComponent->SetValueAsBool("CanSeePlayer", true); // Force l'état d'agression/combat
+		BlackboardComponent->SetValueAsBool("CanSeePlayer", true); 
 		BlackboardComponent->SetValueAsObject("PlayerTargetActor", Attacker);
 		BlackboardComponent->SetValueAsVector("LastKnownPlayerLocation", Attacker->GetActorLocation());
-    
-		// 3. (OPTIONNEL) Définir une variable de Blackboard pour indiquer qu'elle a été attaquée
-		//    Si vous avez une clé nommée "WasAttacked", définissez-la à true ici.
-		// BlackboardComponent->SetValueAsBool("WasAttacked", true);
-    
-		// 4. Annuler le timer si l'IA était en phase d'oubli
+		BlackboardComponent->SetValueAsBool("IsThreatened", true);
 		GetWorld()->GetTimerManager().ClearTimer(LostSightTimer);
     
 		UE_LOG(LogTemp, Warning, TEXT("IA %s attaquée par %s. Entrée en mode Menace/Riposte!"), *GetName(), *Attacker->GetName());
 	}
+	
