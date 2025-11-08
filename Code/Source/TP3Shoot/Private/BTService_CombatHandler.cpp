@@ -1,5 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+// Fichier : BTService_CombatHandler.cpp
 
 #include "BTService_CombatHandler.h"
 
@@ -19,22 +18,17 @@ void UBTService_CombatHandler::TickNode(UBehaviorTreeComponent& OwnerComp, uint8
 		UBlackboardComponent* BlackboardComp = OwnerComp.GetBlackboardComponent();
         
 		if (!AICon || !BlackboardComp) return;
-
-		// 1. Récupérer la cible
-		AActor* TargetActor = Cast<AActor>(BlackboardComp->GetValueAsObject("PlayerTargetActor"));
+		AActor* TargetActor = Cast<AActor>(BlackboardComp->GetValueAsObject(TEXT("PlayerTargetActor")));
 
 		if (TargetActor)
 		{
+			bool bCanSeePlayer = BlackboardComp->GetValueAsBool(TEXT("CanSeePlayer"));
+          
 			ATP3ShootCharacter* AIChar = Cast<ATP3ShootCharacter>(AICon->GetPawn());
-			if (AIChar)
+			if (AIChar && bCanSeePlayer) 
 			{
-				// 2. Maintenir le Focus (Au cas où une autre tâche l'aurait effacé)
 				AICon->SetFocus(TargetActor);
-                
-				// 3. Tirer !
 				AIChar->Fire();
-                
-				// 4. Réinitialiser la cadence du service
 				TimeSinceLastShot = 0.0f;
 			}
 		}

@@ -133,21 +133,11 @@ void ATP3ShootCharacter::StopAiming()
 
 // N'oubliez pas d'inclure #include "DrawDebugHelpers.h" en tête de votre fichier .cpp !
 
-void ATP3ShootCharacter::Fire()
-
-	{
-
+void ATP3ShootCharacter::Fire(){
 		if (IsFiring) return;
 
 		IsFiring = true;
-
-
-
-		// ... (Animations, Sons, Flash du canon) ...
-
-
-
-		// CALCUL DU POINT DE DÉPART ET DE LA DIRECTION DE TIR (IA vs JOUEUR)
+		
 
 		FVector Start;
 
@@ -416,8 +406,8 @@ float ATP3ShootCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Dam
 		return ActualDamage;
 	}
 
-void AAIControllerShooter::ReactToThreat(AActor* Attacker)
-	{
+// Fonction : AAIControllerShooter::ReactToThreat
+void AAIControllerShooter::ReactToThreat(AActor* Attacker){
 		if (!BlackboardComponent || !Attacker) return;
 
 		SetFocus(Attacker);
@@ -428,5 +418,10 @@ void AAIControllerShooter::ReactToThreat(AActor* Attacker)
 		GetWorld()->GetTimerManager().ClearTimer(LostSightTimer);
     
 		UE_LOG(LogTemp, Warning, TEXT("IA %s attaquée par %s. Entrée en mode Menace/Riposte!"), *GetName(), *Attacker->GetName());
+		APawn* AIPawn = GetPawn();
+		if (AIPawn)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Ma position : %s"), *AIPawn->GetActorLocation().ToString());
+		}
 	}
 	
