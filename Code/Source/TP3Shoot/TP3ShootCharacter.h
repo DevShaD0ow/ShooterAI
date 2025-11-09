@@ -141,5 +141,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Firing")
 	bool IsFiring;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Team")
+	int32 TeamID = 0;
 };
 
