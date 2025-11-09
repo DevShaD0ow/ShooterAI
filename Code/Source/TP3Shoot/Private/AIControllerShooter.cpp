@@ -49,6 +49,26 @@ void AAIControllerShooter::OnTargetPerceptionUpdated(AActor* Actor, FAIStimulus 
     if (!Actor) return;
     if (Actor == GetPawn()) return;
 
+    AAIShooterCharacter* SelfChar = Cast<AAIShooterCharacter>(GetPawn());
+    AAIShooterCharacter* OtherChar = Cast<AAIShooterCharacter>(Actor);
+    ATP3ShootCharacter* PlayerChar = Cast<ATP3ShootCharacter>(Actor);
+
+    if (SelfChar && OtherChar)
+    {
+        if (SelfChar->TeamID == OtherChar->TeamID)
+        {
+            return;
+        }
+    }
+
+    if (SelfChar && PlayerChar)
+    {
+        if (SelfChar->TeamID == PlayerChar->TeamID)
+        {
+            return;
+        }
+    }
+
     if (Stimulus.Type == UAISense::GetSenseID<UAISense_Sight>())
     {
         if (Stimulus.WasSuccessfullySensed())
