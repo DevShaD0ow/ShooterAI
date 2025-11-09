@@ -13,7 +13,7 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "Kismet/GameplayStatics.h"
 #include "Perception/AISense_Hearing.h"
-#include "Perception/AISense_Sight.h"
+#include "AIShooterCharacter.h"
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -409,6 +409,26 @@ float ATP3ShootCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Dam
 // Fonction : AAIControllerShooter::ReactToThreat
 void AAIControllerShooter::ReactToThreat(AActor* Attacker){
 		if (!BlackboardComponent || !Attacker) return;
+
+		AAIShooterCharacter* SelfChar = Cast<AAIShooterCharacter>(GetPawn());
+		AAIShooterCharacter* OtherChar = Cast<AAIShooterCharacter>(Attacker);
+		ATP3ShootCharacter* PlayerChar = Cast<ATP3ShootCharacter>(Attacker);
+
+		if (SelfChar && OtherChar)
+		{
+			if (SelfChar->TeamID == OtherChar->TeamID)
+			{
+				return;
+			}
+		}
+
+		if (SelfChar && PlayerChar)
+		{
+			if (SelfChar->TeamID == PlayerChar->TeamID)
+			{
+				return;
+			}
+		}
 
 		SetFocus(Attacker);
 		BlackboardComponent->SetValueAsBool("CanSeePlayer", true); 
