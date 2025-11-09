@@ -1,4 +1,4 @@
-# Replication du temps
+# Shooter IA
 
 Ce projet a été réalisé en groupe dans le cadre du **Travail Pratique 3 (TP3)** du cours **Intelligence artificielle pour le jeu vidéo**, offert à l’**Université du Québec à Chicoutimi (UQAC)**.  
 
