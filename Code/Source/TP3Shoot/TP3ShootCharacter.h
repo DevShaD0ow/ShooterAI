@@ -59,8 +59,23 @@ public:
 	void Fire();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Life")
-	int Life = 100;
+	float Life = 100;
 
+	/** Returns CameraBoom subobject **/
+	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+	/** Returns FollowCamera subobject **/
+	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+	// Is Aiming
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Aiming")
+	bool IsAiming;
+
+	// Is Firing
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Firing")
+	bool IsFiring;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Team")
+	int32 TeamID = 0;
+	
 protected:
 
 	
@@ -121,29 +136,12 @@ protected:
 	void RemoveSpeedBoost();
 
 	void FireParticle(FVector Start, FVector Impact);
-
-protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
 
-public:
-	/** Returns CameraBoom subobject **/
-	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
-	/** Returns FollowCamera subobject **/
-	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
-
-public:
-
-	// Is Aiming
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Aiming")
-	bool IsAiming;
-
-	// Is Firing
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Firing")
-	bool IsFiring;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Team")
-	int32 TeamID = 0;
+	bool IsAttackerHostile(AController* EventInstigator);
+private:
+	void UpdateKillCount(AController* EventInstigator);
 };
 

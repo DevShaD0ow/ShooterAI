@@ -2,6 +2,7 @@
 
 #include "TP3ShootGameMode.h"
 #include "TP3ShootCharacter.h"
+#include "GameFramework/GameStateBase.h"
 #include "UObject/ConstructorHelpers.h"
 
 ATP3ShootGameMode::ATP3ShootGameMode()
@@ -12,4 +13,10 @@ ATP3ShootGameMode::ATP3ShootGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+	/*static ConstructorHelpers::FClassFinder<AGameStateBase> GameStateBPClass(TEXT("/Game/Blueprints/ShooterGameMode"));
+    
+	if (GameStateBPClass.Class != NULL)
+	{
+		GameStateClass = GameStateBPClass.Class;
+	}*/
 }

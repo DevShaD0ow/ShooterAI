@@ -15,6 +15,7 @@
 #include "Perception/AISense_Hearing.h"
 #include "AIShooterCharacter.h"
 #include "DrawDebugHelpers.h" // Ajouté pour DrawDebugLine
+#include "ShooterGameState.h"
 #include "BehaviorTree/BlackboardComponent.h" // Ajouté pour Blackboard
 
 
@@ -308,39 +309,111 @@ void ATP3ShootCharacter::MoveRight(float Value)
     }
 }
 
+// ATP3ShootCharacter.cpp (Ajouter ces fonctions avant TakeDamage)
 
+bool ATP3ShootCharacter::IsAttackerHostile(AController* EventInstigator)
+{
+    if (!EventInstigator)
+    {
+        return true; // Si pas d'instigateur, on assume hostile (environnement, etc.)
+    }
+
+    ATP3ShootCharacter* AttackerCharacter = Cast<ATP3ShootCharacter>(EventInstigator->GetPawn());
+
+    if (AttackerCharacter)
+    {
+        // Retourne VRAI si les TeamID sont différents
+        return AttackerCharacter->TeamID != this->TeamID;
+    }
+
+    // Si l'attaquant n'est pas un personnage (ex: dégâts de chute), on assume hostile.
+    return true;
+}
+
+void ATP3ShootCharacter::UpdateKillCount(AController* EventInstigator)
+{
+    if (!EventInstigator) return;
+
+    ATP3ShootCharacter* AttackerCharacter = Cast<ATP3ShootCharacter>(EventInstigator->GetPawn());
+    AShooterGameState* GS = GetWorld()->GetGameState<AShooterGameState>();
+
+    if (AttackerCharacter && GS)
+    {
+        // L'attaquant est la personne qui a fait le kill, on incrémente son score d'équipe.
+        if (AttackerCharacter->TeamID == 0)
+        {
+            GS->updatekillTeam0();
+        }
+        else if (AttackerCharacter->TeamID == 1)
+        {
+            GS->updatekillTeam1();
+        }
+        // Afficher un log pour le kill
+        UE_LOG(LogTemp, Warning, TEXT("%s a fait un kill! Nouveau score Team %d: %d"), 
+               *AttackerCharacter->GetName(), AttackerCharacter->TeamID, 
+               AttackerCharacter->TeamID == 0 ? GS->killTeam0 : GS->killTeam1);
+    }
+}
 float ATP3ShootCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
     float ActualDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 
-    if (ActualDamage > 0.0f)
+    if (ActualDamage <= 0.0f)
     {
+        return ActualDamage;
+    }
+
+    // Vérifie l'hostilité en utilisant la fonction utilitaire
+    bool bIsHostile = IsAttackerHostile(EventInstigator);
+
+    if (bIsHostile)
+    {
+        // APPLIQUER LES DÉGÂTS RÉELS
         Life -= FMath::RoundToInt(ActualDamage);
         
-        UE_LOG(LogTemp, Warning, TEXT("%s a subi %.2f dégâts. Vie restante : %d"), 
+        UE_LOG(LogTemp, Warning, TEXT("%s a subi %.2f dégâts. Vie restante : %.2f"), 
             *GetName(), ActualDamage, Life);
 
         AAIControllerShooter* AIController = Cast<AAIControllerShooter>(GetController());
         
+        // LOGIQUE DE RÉACTION
         if (AIController && DamageCauser && EventInstigator)
         {
             if (UBlackboardComponent* BlackboardComp = AIController->GetBlackboardComponent())
             {
                 bool bIsPlayerVisible = BlackboardComp->GetValueAsBool(TEXT("CanSeePlayer"));
 
-                if (!bIsPlayerVisible)AIController->ReactToThreat(DamageCauser);
+                if (!bIsPlayerVisible)
+                {
+                    AIController->ReactToThreat(DamageCauser);
+                }
             }
-            else AIController->ReactToThreat(DamageCauser);
+            else 
+            {
+                AIController->ReactToThreat(DamageCauser);
+            }
         }
         
+        // LOGIQUE DE MORT ET RESPAWN
         if (Life <= 0)
         {
+            // Met à jour le score avant de respawner
+            UpdateKillCount(EventInstigator);
+
             FVector RespawnLocation;
-            if (TeamID == 0)RespawnLocation = FVector(340.f, 3050.f, 90.f);
-            else if (TeamID == 1)RespawnLocation = FVector(2497.f, 360.f, 96.f);
-            
+            if (TeamID == 0)
+            {
+                RespawnLocation = FVector(340.f, 3050.f, 90.f);
+            }
+            else if (TeamID == 1)
+            {
+                RespawnLocation = FVector(2497.f, 360.f, 96.f);
+            }
+
             SetActorLocation(RespawnLocation);
             Life = 100;
+            
+            // Réinitialisation du Blackboard
             if (AIController)
             {
                 if (UBlackboardComponent* BlackboardComp = AIController->GetBlackboardComponent())
@@ -352,8 +425,9 @@ float ATP3ShootCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Dam
                 }
                 AIController->ClearFocus(EAIFocusPriority::Gameplay);
             }
+
             UE_LOG(LogTemp, Warning, TEXT("%s a été respawn avec 100 points de vie !"), *GetName());
         }
-    }
+    } 
     return ActualDamage;
 }

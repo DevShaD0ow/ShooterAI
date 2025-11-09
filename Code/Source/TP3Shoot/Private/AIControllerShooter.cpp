@@ -107,40 +107,25 @@ void AAIControllerShooter::ForgetPlayer()
 }
 
 // Fonction : AAIControllerShooter::ReactToThreat
-void AAIControllerShooter::ReactToThreat(AActor* Attacker){
+void AAIControllerShooter::ReactToThreat(AActor* Attacker)
+{
     if (!BlackboardComponent || !Attacker) return;
 
-    AAIShooterCharacter* SelfChar = Cast<AAIShooterCharacter>(GetPawn());
-    AAIShooterCharacter* OtherChar = Cast<AAIShooterCharacter>(Attacker);
-    ATP3ShootCharacter* PlayerChar = Cast<ATP3ShootCharacter>(Attacker);
-
-    if (SelfChar && OtherChar)
-    {
-        if (SelfChar->TeamID == OtherChar->TeamID)
-        {
-            return;
-        }
-    }
-
-    if (SelfChar && PlayerChar)
-    {
-        if (SelfChar->TeamID == PlayerChar->TeamID)
-        {
-            return;
-        }
-    }
+    // Suppression de toute la logique de vérification d'équipe
 
     SetFocus(Attacker);
-    BlackboardComponent->SetValueAsBool("CanSeePlayer", true); 
-    BlackboardComponent->SetValueAsObject("PlayerTargetActor", Attacker);
-    BlackboardComponent->SetValueAsVector("LastKnownPlayerLocation", Attacker->GetActorLocation());
-    BlackboardComponent->SetValueAsBool("IsThreatened", true);
+    BlackboardComponent->SetValueAsBool(TEXT("CanSeePlayer"), true); 
+    BlackboardComponent->SetValueAsObject(TEXT("PlayerTargetActor"), Attacker);
+    BlackboardComponent->SetValueAsVector(TEXT("LastKnownPlayerLocation"), Attacker->GetActorLocation());
+    BlackboardComponent->SetValueAsBool(TEXT("IsThreatened"), true);
     GetWorld()->GetTimerManager().ClearTimer(LostSightTimer);
     
     UE_LOG(LogTemp, Warning, TEXT("IA %s attaquée par %s. Entrée en mode Menace/Riposte!"), *GetName(), *Attacker->GetName());
+    
     APawn* AIPawn = GetPawn();
     if (AIPawn)
     {
+        // Correction de la syntaxe de log de position
         UE_LOG(LogTemp, Warning, TEXT("Ma position : %s"), *AIPawn->GetActorLocation().ToString());
     }
 }
