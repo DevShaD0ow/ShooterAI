@@ -399,7 +399,21 @@ float ATP3ShootCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Dam
         
 			if (Life <= 0)
 			{
-				// Destruction ou logique de mort ici
+				
+				FVector RespawnLocation;
+				if (TeamID == 0)
+				{
+					RespawnLocation = FVector(340.f, 3050.f, 90.f);
+				}
+				else if (TeamID == 1)
+				{
+					RespawnLocation = FVector(2497.f, 360.f, 96.f);
+				}
+
+				SetActorLocation(RespawnLocation);
+				Life = 100;
+
+				UE_LOG(LogTemp, Warning, TEXT("%s a été respawn avec 100 points de vie !"), *GetName());
 			}
 		}
 
