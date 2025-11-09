@@ -58,9 +58,11 @@ public:
 	// Firing function
 	void Fire();
 
-protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Life")
-	int Life=100;
+	int Life = 100;
+
+protected:
+
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AI")
 	UAIPerceptionStimuliSourceComponent* StimuliSource;
