@@ -10,7 +10,7 @@
  * 
  */
 UCLASS()
-class TP3SHOOT_API AShooterGameState : public AGameState
+class TP3SHOOT_API AShooterGameState : public AGameStateBase
 {
 	GENERATED_BODY()
 

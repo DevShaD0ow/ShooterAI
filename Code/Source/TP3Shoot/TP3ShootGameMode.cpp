@@ -13,10 +13,4 @@ ATP3ShootGameMode::ATP3ShootGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
-	/*static ConstructorHelpers::FClassFinder<AGameStateBase> GameStateBPClass(TEXT("/Game/Blueprints/ShooterGameMode"));
-    
-	if (GameStateBPClass.Class != NULL)
-	{
-		GameStateClass = GameStateBPClass.Class;
-	}*/
 }

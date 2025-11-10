@@ -42,19 +42,11 @@ public:
     
     // Temps entre deux tirs (fire rate)
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
-    float FireRate = 0.1f; // 10 tirs par seconde
+    float FireRate = 0.1f;
     
     // Timer pour le tir automatique
     FTimerHandle FireTimer;
-    
-    // Son du tir
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
-    USoundBase* FireSound;
-    
-    // Effet de flash du canon
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
-    UParticleSystem* MuzzleFlash;
-
+	
 	// Firing function
 	void Fire();
 
@@ -78,24 +70,27 @@ public:
 	
 protected:
 
+	// Son du tir
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
+	USoundBase* FireSound;
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AI")
 	UAIPerceptionStimuliSourceComponent* StimuliSource;
 	
 	// Add a gun skeletal mesh component
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	UPROPERTY(VisibleDefaultsOnly, Category = "Weapon")
 	class USkeletalMeshComponent* SK_Gun;
 
 	// Particle Start
-	UPROPERTY(EditAnywhere, Category = Gameplay)
+	UPROPERTY(EditAnywhere, Category = "Weapon")
 	class UParticleSystem* ParticleStart;
 
 	// Particle Impact
-	UPROPERTY(EditAnywhere, Category = Gameplay)
+	UPROPERTY(EditAnywhere, Category = "Weapon")
 	class UParticleSystem* ParticleImpact;
 
 	// Fire animation
-	UPROPERTY(EditAnywhere, Category = Gameplay)
+	UPROPERTY(EditAnywhere, Category = "Weapon")
 	class UAnimMontage* FireAnimation;
 
 	// Timer for Boost Speed
@@ -135,7 +130,6 @@ protected:
 
 	void RemoveSpeedBoost();
 
-	void FireParticle(FVector Start, FVector Impact);
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface

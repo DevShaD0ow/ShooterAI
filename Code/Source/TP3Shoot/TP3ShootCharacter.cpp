@@ -144,7 +144,7 @@ void ATP3ShootCharacter::Fire()
     if (FireAnimation) PlayAnimMontage(FireAnimation);
     if (FireSound) UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
     StopAnimMontage(FireAnimation);
-    if (MuzzleFlash) UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, SK_Gun, TEXT("MuzzleFlash"));
+    if (ParticleStart) UGameplayStatics::SpawnEmitterAttached(ParticleStart, SK_Gun, TEXT("MuzzleFlash"));
        
 
     FVector Start;
@@ -194,8 +194,6 @@ void ATP3ShootCharacter::Fire()
     if (GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, TraceParams))
     {
         FVector ImpactPoint = HitResult.ImpactPoint;
-        FireParticle(Start, ImpactPoint);
-
         AActor* HitActor = HitResult.GetActor();
         if (HitActor)
         {
@@ -211,8 +209,6 @@ void ATP3ShootCharacter::Fire()
     {
         // Particules (si ça rate)
         FVector EndNoHit = Start + (ForwardVector * WeaponRange);
-        FireParticle(Start, EndNoHit);
-
         // Dessine la ligne ROUGE (va jusqu'à la fin de la portée)
 #if ENABLE_DRAW_DEBUG
         DrawDebugLine(GetWorld(), Start, EndNoHit, FColor::Red, false, 1.0f, 0, 1.5f);
@@ -249,25 +245,6 @@ void ATP3ShootCharacter::RemoveSpeedBoost()
 }
 
 
-void ATP3ShootCharacter::FireParticle(FVector Start, FVector Impact)
-{
-    if (!ParticleStart || !ParticleImpact) return;
-
-    FTransform ParticleT;
-
-    ParticleT.SetLocation(Start);
-
-    ParticleT.SetScale3D(FVector(0.25, 0.25, 0.25));
-
-    UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ParticleStart, ParticleT, true);
-
-    // Spawn particle at impact point
-    ParticleT.SetLocation(Impact);
-
-    UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ParticleImpact, ParticleT, true);
-
-}
-
 void ATP3ShootCharacter::TurnAtRate(float Rate)
 {
     // calculate delta for this frame from the rate information
@@ -284,12 +261,10 @@ void ATP3ShootCharacter::MoveForward(float Value)
 {
     if ((Controller != nullptr) && (Value != 0.0f))
     {
-        // find out which way is forward
         const FRotator Rotation = Controller->GetControlRotation();
         const FRotator YawRotation(0, Rotation.Yaw, 0);
-
-        // get forward vector
         const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+        
         AddMovementInput(Direction, Value);
     }
 }
@@ -298,35 +273,23 @@ void ATP3ShootCharacter::MoveRight(float Value)
 {
     if ((Controller != nullptr) && (Value != 0.0f))
     {
-        // find out which way is right
         const FRotator Rotation = Controller->GetControlRotation();
         const FRotator YawRotation(0, Rotation.Yaw, 0);
-    
-        // get right vector 
         const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
-        // add movement in that direction
+        
         AddMovementInput(Direction, Value);
     }
 }
 
-// ATP3ShootCharacter.cpp (Ajouter ces fonctions avant TakeDamage)
-
 bool ATP3ShootCharacter::IsAttackerHostile(AController* EventInstigator)
 {
-    if (!EventInstigator)
-    {
-        return true; // Si pas d'instigateur, on assume hostile (environnement, etc.)
-    }
+    if (!EventInstigator) return true; 
+    
 
     ATP3ShootCharacter* AttackerCharacter = Cast<ATP3ShootCharacter>(EventInstigator->GetPawn());
 
-    if (AttackerCharacter)
-    {
-        // Retourne VRAI si les TeamID sont différents
-        return AttackerCharacter->TeamID != this->TeamID;
-    }
-
-    // Si l'attaquant n'est pas un personnage (ex: dégâts de chute), on assume hostile.
+    if (AttackerCharacter) return AttackerCharacter->TeamID != this->TeamID;
+    
     return true;
 }
 
@@ -339,81 +302,44 @@ void ATP3ShootCharacter::UpdateKillCount(AController* EventInstigator)
 
     if (AttackerCharacter && GS)
     {
-        // L'attaquant est la personne qui a fait le kill, on incrémente son score d'équipe.
-        if (AttackerCharacter->TeamID == 0)
-        {
-            GS->updatekillTeam0();
-        }
-        else if (AttackerCharacter->TeamID == 1)
-        {
-            GS->updatekillTeam1();
-        }
-        // Afficher un log pour le kill
-        UE_LOG(LogTemp, Warning, TEXT("%s a fait un kill! Nouveau score Team %d: %d"), 
-               *AttackerCharacter->GetName(), AttackerCharacter->TeamID, 
-               AttackerCharacter->TeamID == 0 ? GS->killTeam0 : GS->killTeam1);
+        if (AttackerCharacter->TeamID == 0)GS->updatekillTeam0();
+        else if (AttackerCharacter->TeamID == 1) GS->updatekillTeam1();
     }
 }
 float ATP3ShootCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
     float ActualDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 
-    if (ActualDamage <= 0.0f)
-    {
-        return ActualDamage;
-    }
-
-    // Vérifie l'hostilité en utilisant la fonction utilitaire
+    if (ActualDamage <= 0.0f)return ActualDamage;
     bool bIsHostile = IsAttackerHostile(EventInstigator);
 
     if (bIsHostile)
     {
-        // APPLIQUER LES DÉGÂTS RÉELS
         Life -= FMath::RoundToInt(ActualDamage);
-        
-        UE_LOG(LogTemp, Warning, TEXT("%s a subi %.2f dégâts. Vie restante : %.2f"), 
-            *GetName(), ActualDamage, Life);
-
         AAIControllerShooter* AIController = Cast<AAIControllerShooter>(GetController());
         
-        // LOGIQUE DE RÉACTION
         if (AIController && DamageCauser && EventInstigator)
         {
             if (UBlackboardComponent* BlackboardComp = AIController->GetBlackboardComponent())
             {
                 bool bIsPlayerVisible = BlackboardComp->GetValueAsBool(TEXT("CanSeePlayer"));
 
-                if (!bIsPlayerVisible)
-                {
-                    AIController->ReactToThreat(DamageCauser);
-                }
+                if (!bIsPlayerVisible)AIController->ReactToThreat(DamageCauser);
+                
             }
-            else 
-            {
-                AIController->ReactToThreat(DamageCauser);
-            }
+            else AIController->ReactToThreat(DamageCauser);
+            
         }
-        
-        // LOGIQUE DE MORT ET RESPAWN
         if (Life <= 0)
         {
-            // Met à jour le score avant de respawner
             UpdateKillCount(EventInstigator);
-
             FVector RespawnLocation;
-            if (TeamID == 0)
-            {
-                RespawnLocation = FVector(340.f, 3050.f, 90.f);
-            }
-            else if (TeamID == 1)
-            {
-                RespawnLocation = FVector(2497.f, 360.f, 96.f);
-            }
-
+            if (TeamID == 0)RespawnLocation = FVector(340.f, 3050.f, 90.f);
+            
+            else if (TeamID == 1)RespawnLocation = FVector(2497.f, 360.f, 96.f);
+            
             SetActorLocation(RespawnLocation);
             Life = 100;
-            
-            // Réinitialisation du Blackboard
             if (AIController)
             {
                 if (UBlackboardComponent* BlackboardComp = AIController->GetBlackboardComponent())
@@ -425,8 +351,6 @@ float ATP3ShootCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Dam
                 }
                 AIController->ClearFocus(EAIFocusPriority::Gameplay);
             }
-
-            UE_LOG(LogTemp, Warning, TEXT("%s a été respawn avec 100 points de vie !"), *GetName());
         }
     } 
     return ActualDamage;
