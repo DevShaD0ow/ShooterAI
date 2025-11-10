@@ -8,6 +8,11 @@ public class TP3Shoot : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject","Engine", "InputCore", "HeadMountedDisplay", "GameplayTasks", "AIModule", "NavigationSystem", "UMG" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject","Engine", "InputCore", "HeadMountedDisplay", "GameplayTasks", "AIModule", "NavigationSystem", "UMG","Niagara" });
+		if (Target.Configuration == UnrealTargetConfiguration.Development)
+		{
+			PublicDefinitions.Add("ENABLE_DRAW_DEBUG=1");
+		}
+		
 	}
 }
